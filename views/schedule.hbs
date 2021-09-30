@@ -1,0 +1,35 @@
+<div class="container-fluid bg-pale">
+    <div class="container container--content">
+        <h3 class="ScheduleTime">
+            <span class="may">November</span>
+        </h3>
+        <div class="scheduleNav">
+            {{#each date}}
+                <a id="date" class="btn-schedule" href="?date={{date}}">{{date}}</a>
+            {{/each}}
+        </div>
+        <br/>
+        {{> cards}}
+
+        <script type="text/javascript">
+
+            let sBtn = document.querySelectorAll('.btn-schedule');
+            for (let i = 0; i < sBtn.length; i++) {
+                let dates = sBtn[i].innerHTML
+                let arr = dates.match(/\S+/g,)
+                sBtn[i].innerHTML = arr[1];
+            }
+
+            for (let i = 0; i < sBtn.length; i++) {
+                let date = sBtn[i].getAttribute('href')
+                let sUrl = window
+                    .location
+                    .search
+                    .replace(/%20/g, ' ')
+                if (date == sUrl) {
+                    sBtn[i]
+                        .classList
+                        .add('active')
+                }
+            }
+        </script>

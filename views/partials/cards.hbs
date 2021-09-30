@@ -1,0 +1,102 @@
+{{!-- <div class="film-card uk-card uk-card-default uk-card-body uk-width-1-2@m">
+    
+    <<img class="responsive-img" src="https://www.fillmurray.com">
+        
+</div> --}}
+{{#each film}}
+    <div class="col s12 m7">
+        <div class="card horizontal">
+            <div class="card-image">
+                <img src="//localhost:3000/uploads/{{img}}" alt="{{title}}" href="/film/{{id}}">
+            </div>
+            <div class="card-stacked">
+                <div class="Film_content card-content">
+                    <div>
+                        <div class="pull-right">
+                            <div class="runtime pull-right">Duration:
+                                {{duration}}
+                                min</div>
+                        </div>
+                        <div class="filmGenre">{{category}}</div>
+                        <div class="clearfix"></div>
+                        <h4 class="heading-4">
+                            <a class="film_title" href="/film/{{id}}">{{title}}</a>
+                        </h4>
+                        <div class="Film_summary">{{description}}</div>
+                    </div>
+
+                </div>
+                <div class="card-action film_card">
+
+                    <span class="start_time">Starts at
+                        {{screeningTime}}
+                        on
+                        {{date}}</span>
+
+                    <a href="/film/{{id}}">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/each}}
+
+<script type="text/javascript">
+
+    let category = document.querySelectorAll('.filmGenre')
+    let img = document.querySelectorAll('.card-image')
+    let catArr = []
+    let imgArr = []
+
+    for (let i = 0; i < category.length; i++) {
+        catArr.push(category[i].innerHTML)
+    }
+    for (let i = 0; i < img.length; i++) {
+        imgArr.push(img[i])
+    }
+
+    for (let i = 0; i < catArr.length; i++) {
+        switch (catArr[i]) {
+            case 'Wildlife Conservation Films':
+                imgArr[i]
+                    .classList
+                    .add('card-image-red')
+                break;
+            case 'Environmental Films':
+                imgArr[i]
+                    .classList
+                    .add('card-image-purple')
+                break;
+            case 'Youth and Children Films':
+                imgArr[i]
+                    .classList
+                    .add('card-image-orange')
+                break;
+            case 'Wildfire Prevention Films':
+                imgArr[i]
+                    .classList
+                    .add('card-image-yellow')
+                break;
+            case 'Non-Competition Films':
+                imgArr[i]
+                    .classList
+                    .add('card-image-black')
+                break;
+            case 'Events':
+                imgArr[i]
+                    .classList
+                    .add('card-image-blue')
+                break;
+            case 'Journalistic Competition':
+                imgArr[i]
+                    .classList
+                    .add('card-image-brown')
+                break;
+            default:
+                imgArr[i]
+                    .classList
+                    .add('card-image-green')
+                break;
+
+        }
+    }
+</script>

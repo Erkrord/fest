@@ -1,0 +1,39 @@
+<nav>
+
+    <div class="nav-wrapper grey darken-4">
+        <a href="/" class="brand-logo">SIEFF</a>
+
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+                {{> search}}</li>
+            {{#if ishome}}
+                <li class="active">
+                    <a href="/">BROWSE</a>
+                </li>
+            {{else}}
+                <li>
+                    <a href="/">BROWSE</a>
+                </li>
+            {{/if}}
+            {{#if isschedule}}
+                <li class="active">
+                    <a href="/schedule">SCHEDULE</a>
+                </li>
+            {{else}}
+                <li >
+                    <a href="/schedule">SCHEDULE</a>
+                </li>
+            {{/if}}
+            {{#if isabout}}
+                <li class="active">
+                    <a href="/about">ABOUT</a>
+                </li>
+            {{else}}
+                <li>
+                    <a href="/about">ABOUT</a>
+                </li>
+            {{/if}}
+
+        </ul>
+    </div>
+</nav>

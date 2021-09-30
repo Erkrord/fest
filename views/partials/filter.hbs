@@ -1,0 +1,112 @@
+<ul class="collapsible">
+    <li>
+        <div class="collapsible-header">
+            <h5>
+                <i class="material-icons">expand_more</i>Filter Events</h5>
+        </div>
+        <div class="collapsible-body">
+            <span>
+                <form autocomplete="off" method="POST" action="/" class="filterForm">
+                    <label><input
+                        id="1"
+                        class="checkbox"
+                        type="checkbox"
+                        name="category"
+                        value="Wildlife Conservation Films"/>
+                        <span>Wildlife Conservation Films</span>
+                    </label>
+                    <label><input
+                        id="2"
+                        class="checkbox"
+                        type="checkbox"
+                        name="category"
+                        value="Environmental Films"/>
+                        <span>Environmental Films</span>
+                    </label>
+                    <label><input
+                        id="3"
+                        class="checkbox"
+                        type="checkbox"
+                        name="category"
+                        value="Youth and Children Films"/>
+                        <span>Youth and Children Films</span>
+                    </label>
+                    <label><input
+                        id="4"
+                        class="checkbox"
+                        type="checkbox"
+                        name="category"
+                        value="Wildfire Prevention Films"/>
+                        <span>Wildfire Prevention Films</span>
+                    </label>
+                    <label><input
+                        id="5"
+                        class="checkbox"
+                        type="checkbox"
+                        name="category"
+                        value="Non-Competition Films"/>
+                        <span>Non-Competition Films</span>
+                    </label>
+                    <label><input id="6" class="checkbox" type="checkbox" name="category" value="Events"/>
+                        <span>Events</span>
+                    </label>
+                    <label><input
+                        id="7"
+                        class="checkbox"
+                        type="checkbox"
+                        name="category"
+                        value="Journalistic Competition"/>
+                        <span>Journalistic Competition</span>
+                    </label>
+                    <div class="filterBtns">
+                        <button id='clearBtn' type="reset" class="waves-effect grey darken-3 btn">
+                            Clear</button>
+
+                        <button id='filterBtn' type="submit" class="waves-effect grey darken-3 btn">
+                            Filter</button>
+                    </div>
+
+                </form>
+            </span>
+        </div>
+    </li>
+
+</ul>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        let elems = document.querySelectorAll('.collapsible');
+        let instances = M
+            .Collapsible
+            .init(elems);
+    });
+    //CHECKBOX
+    let boxes = document
+        .getElementsByClassName('checkbox ')
+        .length;
+
+    function save() {
+        for (let i = 1; i <= boxes; i++) {
+            let checkbox = document.getElementById(String(i));
+            localStorage.setItem("checkbox" + String(i), checkbox.checked);
+        }
+    }
+    for (let i = 1; i <= boxes; i++) {
+        if (localStorage.length > 0) {
+            let checked = JSON.parse(localStorage.getItem("checkbox" + String(i)));
+            document
+                .getElementById(String(i))
+                .checked = checked;
+        }
+    }
+    window.addEventListener('change', save);
+
+    //CLEAR
+    let reset = document.getElementById('clearBtn')
+    function clear() {
+        localStorage.clear()
+        document.location.href = '/'
+    }
+
+    reset.addEventListener('click', clear)
+</script>

@@ -1,0 +1,15 @@
+
+
+{{#if film.length}}
+
+    <div class="container-fluid bg-pale">
+        {{> filter}}
+        <div class="container container--content">
+
+            {{> cards}}
+        </div>
+    </div>
+{{else}}
+    <h2>Empty</h2>
+
+{{/if}}

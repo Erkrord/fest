@@ -1,0 +1,174 @@
+<div class="container">
+    <h3>{{title}}</h3>
+    <div class="row">
+        <form
+            class="col s12"
+            action="/admin/edit/update/{{film.id}}"
+            method="POST"
+            enctype="multipart/form-data">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input
+                        placeholder="Type Film Name"
+                        name="title"
+                        id="film_name"
+                        type="text"
+                        class="validate"
+                        value="{{film.title}}">
+                        <label for="first_name">Film Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <select id="category" name="category" class="validate">
+                            <option value="{{film.category}}" disabled="disabled" selected="selected">{{film.category}}</option>
+                            <option value="Wildlife Conservation Films">Wildlife Conservation Films</option>
+                            <option value="Environmental Films">Environmental Films</option>
+                            <option value="Youth and Children Films">Youth and Children Films</option>
+                            <option value="Wildfire Prevention Films">Wildfire Prevention Films</option>
+                            <option value="Non-Competition Films">Non-Competition Films</option>
+                            <option value="Events">Events</option>
+                            <option value="Journalistic Competition">Journalistic Competition</option>
+                        </select>
+                        <label>Materialize Multiple Select</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <input
+                            placeholder="Type Film Duration in minutes"
+                            id="duration"
+                            name="duration"
+                            type="number"
+                            value="{{film.duration}}"
+                            class="validate">
+                            <label for="duration">Film Duration (in minutes)</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input
+                                placeholder="Screening Date"
+                                id="screening_date"
+                                name="date"
+                                type="text"
+                                value="{{film.date}}"
+                                class="datepicker">
+                                <label for="film_category">Screening Date</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input
+                                    placeholder="Screening Time"
+                                    id="screeningTime"
+                                    name="screeningTime"
+                                    type="text"
+                                    class="timepicker"
+                                    value="{{film.screeningTime}}"
+                                    step="1">
+                                    <label for="film_category">Screening Time</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input
+                                        placeholder="Director"
+                                        id="director"
+                                        name="director"
+                                        type="text"
+                                        class="validate"
+                                        value="{{film.director}}">
+                                        <label for="director">Director</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input
+                                            placeholder="Producer"
+                                            id="producer"
+                                            name="producer"
+                                            type="text"
+                                            class="validate"
+                                            value="{{film.producer}}">
+                                            <label for="director">Producer</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <input
+                                                placeholder="Editor"
+                                                id="editor"
+                                                name="editor"
+                                                type="text"
+                                                class="validate"
+                                                value="{{film.editor}}">
+                                                <label for="director">Editor</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input
+                                                    placeholder="Executive Producer"
+                                                    id="exProducer"
+                                                    name="exProducer"
+                                                    type="text"
+                                                    class="validate"
+                                                    value="{{film.exProducer}}">
+                                                    <label for="director">Executive Producer</label>
+                                                </div>
+                                                <div class="input-field col s6">
+                                                    <input
+                                                        placeholder="Cast"
+                                                        id="cast"
+                                                        name="cast"
+                                                        type="text"
+                                                        class="validate"
+                                                        value="{{film.cast}}">
+                                                        <label for="director">Cast</label>
+                                                    </div>
+                                                    <div class="input-field col s6">
+                                                        <input
+                                                            placeholder="Film ID (ex: 403770068)"
+                                                            id="fLink"
+                                                            name="fLink"
+                                                            type="text"
+                                                            class="validate"
+                                                            value="{{film.fLink}}">
+                                                            <label for="director">Film ID (ex: 403770068)</label>
+                                                        </div>
+
+                                                        <div class="file-field input-field col s6">
+                                                            <div class="btn">
+                                                                <span>IMG</span>
+                                                                <input type="file" name="img" value="{{film.img}}"></div>
+                                                                <div class="file-path-wrapper">
+                                                                    <input class="file-path validate" type="text" value="{{film.img}}"></div>
+                                                                </div>
+
+                                                                <div class="input-field col s12">
+                                                                    <textarea id="description" name="description" class="materialize-textarea">{{film.description}}</textarea>
+                                                                    <label for="description">Description</label>
+                                                                </div>
+                                                            </div>
+                                                            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                                                            <button class="btn waves-effect waves-light">Update
+                                                            </button>
+                                                        </div>
+
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <script type="text/javascript">
+                                            document.addEventListener('DOMContentLoaded', function () {
+                                                var options = {
+                                                    format: 'mmm dd'
+                                                }
+                                                var elems = document.querySelectorAll('.datepicker');
+                                                var instances = M
+                                                    .Datepicker
+                                                    .init(elems, options);
+                                            });
+                                            document.addEventListener('DOMContentLoaded', function () {
+                                                var options = {
+                                                    twelveHour: false
+                                                }
+                                                var elems = document.querySelectorAll('.timepicker');
+                                                var instances = M
+                                                    .Timepicker
+                                                    .init(elems, options);
+                                            });
+                                            document.addEventListener('DOMContentLoaded', function () {
+                                                const elems = document.querySelectorAll('select');
+                                                const instances = M
+                                                    .FormSelect
+                                                    .init(elems);
+                                            });
+                                        </script>

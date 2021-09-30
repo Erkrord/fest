@@ -1,0 +1,41 @@
+{{!-- <div class="film-card uk-card uk-card-default uk-card-body uk-width-1-2@m">
+    
+    <<img class="responsive-img" src="https://www.fillmurray.com/640/360">
+        
+</div> --}}
+{{#each film}}
+    <div class="col s12 m7">
+        <div class="card horizontal">
+            <div class="card-image">
+                <img id="admCardimage" src="//localhost:3000/uploads/{{img}}" alt="{{title}}">
+            </div>
+            <div class="card-stacked">
+                <div class="Film_content card-content">
+                    <div>
+                        <div class="pull-right">
+                            <div class="runtime pull-right">Duration:
+                                {{duration}}
+                                min</div>
+                        </div>
+                        <div class="filmGenre">{{category}}</div>
+                        <div class="clearfix"></div>
+                        <h4 class="heading-4">
+                            <a class="film_title" href="/events/beautiful-things-2020">{{title}}</a>
+                        </h4>
+                        <div class="Film_summary">{{description}}</div>
+                    </div>
+
+                </div>
+                <div class="card-action film_card">
+
+                    <a class="btn" href="/admin/edit/{{id}}">Edit</a>
+                    <form action="/admin/remove/{{id}}" method="POST">
+                        <input type="hidden" name="id" value=""/>
+                        <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+                        <button class="btn red">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/each}}
