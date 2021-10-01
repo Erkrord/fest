@@ -31,7 +31,7 @@
                     <a class="btn" href="/admin/edit/{{id}}">Edit</a>
                     <form action="/admin/remove/{{id}}" method="POST">
                         <input type="hidden" name="id" value=""/>
-                        <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+                        <input type="hidden" name="_csrf" value="{{@root.tkn}}">
                         <button class="btn red">Delete</button>
                     </form>
                 </div>

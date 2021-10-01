@@ -7,18 +7,28 @@
     <form action="/auth/login" method="POST">
         <div class="row">
             <div class="input-field col s6  offset-s3">
-                <input required id="email" type="email" class="validate" name="email">
+                <input
+                    required="required"
+                    id="email"
+                    type="email"
+                    class="validate"
+                    name="email">
                 <label for="email">Email</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6  offset-s3">
-                <input required id="password" type="password" class="validate" name="password">
+                <input
+                    required="required"
+                    id="password"
+                    type="password"
+                    class="validate"
+                    name="password">
                 <label for="password">Password</label>
             </div>
         </div>
         <div class="input-field col s6 offset-s3">
-            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <input type="hidden" name="_csrf" value="{{tkn}}">
             <button type="submit" class="btn btn-primary">Login</button>
         </div>
     </form>

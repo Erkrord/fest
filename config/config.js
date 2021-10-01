@@ -10,9 +10,11 @@ const csurf = require('csurf')
 const MongoDBStore = require('connect-mongodb-session')(session);
 const authMidle = require('../middlewares/auth')
 const MONGODB_URI = 'mongodb://localhost:27017/sieff'
+const salt = 'jlN([V;+m-<}zIu++T):*j1g`6!Gjyj%U?jijohjviZ%jjF@j$-j&jj+?wg*;(V?)^wun/'
 
-const store = new MongoDBStore({collection: 'session', uri: MONGODB_URI, databaseName:'sieff'})
-
+const store = new MongoDBStore(
+    {collection: 'session', uri: MONGODB_URI, databaseName: 'sieff'}
+)
 
 app.use(express.static('public'));
 app.use('/uploads', express.static('uploads'));
@@ -20,11 +22,11 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 app.use(
-    session({secret: 'keyboard cat', resave: false, saveUninitialized: false, store: store})
+    session({secret: salt, resave: false, saveUninitialized: false, store: store, cookie: {}})
 )
+
 app.use(csurf())
 app.use(authMidle)
-
 
 // Register `hbs.engine` with the Express app.
 app.engine('hbs', exphbs({
@@ -79,6 +81,5 @@ app.use('/schedule', schedule)
 app.use('/admin/addfilm', addFilm)
 app.use('/film/', film)
 app.use('/auth/', login)
-
 
 module.exports.start = start

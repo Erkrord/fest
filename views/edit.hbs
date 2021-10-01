@@ -3,7 +3,7 @@
     <div class="row">
         <form
             class="col s12"
-            action="/admin/edit/update/{{film.id}}"
+            action="/admin/edit/update/{{film.id}}?_csrf={{tkn}}"
             method="POST"
             enctype="multipart/form-data">
             <div class="row">
@@ -136,7 +136,6 @@
                                                                     <label for="description">Description</label>
                                                                 </div>
                                                             </div>
-                                                            <input type="hidden" name="_csrf" value="{{csrfToken}}">
                                                             <button class="btn waves-effect waves-light">Update
                                                             </button>
                                                         </div>

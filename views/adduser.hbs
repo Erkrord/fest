@@ -40,9 +40,8 @@
             </select>
             <label>Select User Role</label>
         </div>
-        <input type="hidden" name="_csrf" value="{{csurf}}">
         <div class="input-field col s6 offset-s3">
-            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <input type="hidden" name="_csrf" value="{{tkn}}">
             <button type="submit" class="btn btn-primary">Add User</button>
         </div>
     </form>
@@ -61,10 +60,14 @@
                         {{role}}
                     </p>
                     <form id="usDel" action="/admin/remove-user/{{_id}}" method="POST">
-                    <input type="hidden" name="id" value=""/>
-                    <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
-                    <input type="submit" name="" class="material-icons icon-red secondary-content" value="delete">
-                    
+                        <input type="hidden" name="id" value=""/>
+                        <input type="hidden" name="_csrf" value="{{@root.tkn}}">
+                        <input
+                            type="submit"
+                            name=""
+                            class="material-icons icon-red secondary-content"
+                            value="delete">
+
                     </form>
                 </li>
             </ul>
