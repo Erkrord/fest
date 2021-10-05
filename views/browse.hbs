@@ -1,15 +1,24 @@
-
-
 {{#if film.length}}
 
     <div class="container-fluid bg-pale">
         {{> filter}}
-        <div class="container container--content">
+        <div class="container--content">
 
             {{> cards}}
         </div>
+        
     </div>
 {{else}}
     <h2>Empty</h2>
 
 {{/if}}
+
+<style type="text/css">
+    .Film {
+    min-height: 250px;
+    position: relative;
+    margin-bottom: 20px;
+    background: #fff;
+    display: flex;
+}
+</style>

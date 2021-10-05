@@ -16,6 +16,7 @@ router.get('/', async (req, res) => {
     res.render('schedule', {
         title: 'schedule',
         isActive: true,
+        isschedule: true,
         film,
         date
     });

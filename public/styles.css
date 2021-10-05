@@ -8,6 +8,9 @@
 .card-image {
     border-right: 8px solid green;
 }
+body {
+    background: #f7f9fb;
+}
 .pull-right {
     float: right !important;
 }
@@ -80,25 +83,25 @@ i.icon-red {
     transition: all 0.25s ease-out;
 }
 .card-image-red {
-    border-right: 8px solid red;
+    border-right: 8px solid #e2007a;
 }
 .card-image-blue {
-    border-right: 8px solid blue;
+    border-right: 8px solid #5064FF;
 }
 .card-image-purple {
     border-right: 8px solid purple;
 }
 .card-image-orange {
-    border-right: 8px solid orange;
+    border-right: 8px solid #ffa502;
 }
 .card-image-yellow {
-    border-right: 8px solid yellow;
+    border-right: 8px solid rgb(199, 199, 10);
 }
 .card-image-black {
-    border-right: 8px solid black;
+    border-right: 8px solid #03191b;
 }
 .card-image-green {
-    border-right: 8px solid darkgreen;
+    border-right: 8px solid #16a085;
 }
 .card-image-brown {
     border-right: 8px solid brown;
@@ -108,25 +111,25 @@ i.icon-red {
 }
 /*TOP BORDER*/
 .film-border-red {
-    border-top: 8px solid red;
+    border-top: 8px solid #e2007a;
 }
 .film-border-blue {
-    border-top: 8px solid blue;
+    border-top: 8px solid #5064FF;
 }
 .film-border-purple {
     border-top: 8px solid purple;
 }
 .film-border-orange {
-    border-top: 8px solid orange;
+    border-top: 8px solid #ffa502;
 }
 .film-border-yellow {
-    border-top: 8px solid yellow;
+    border-top: 8px solid rgb(199, 199, 10);
 }
 .film-border-black {
-    border-top: 8px solid black;
+    border-top: 8px solid #03191b;
 }
 .film-border-green {
-    border-top: 8px solid darkgreen;
+    border-top: 8px solid #16a085;
 }
 .film-border-brown {
     border-top: 8px solid brown;
