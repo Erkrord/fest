@@ -9,7 +9,15 @@
             {{/each}}
         </div>
         <br/>
-        {{> cards}}
+
+        {{#if film.length}}
+            <div class="container--content">
+
+                {{> cards}}
+            </div>
+        {{else}}
+            <h2>No Film Found!</h2>
+        {{/if}}
 
         <script type="text/javascript">
 

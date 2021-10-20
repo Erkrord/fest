@@ -5,10 +5,17 @@ const router = express.Router();
 router.get('/:id', async (req, res) => {
     const film = await Film.findOne({id: req.params.id})
 
-    res.render('film', {
-        title: "Film",
-        film
-    });
+    if (film !== null) {
+        res.render('film', {
+            title: "Film",
+            film
+        });
+    }
+    else{
+        res.render('404', {
+            title: '404'
+        }); 
+    }
 });
 
 module.exports = router;

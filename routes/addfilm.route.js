@@ -21,6 +21,7 @@ router.post('/', letin, imgMidle.upload.single('img'), async (req, res) => {
                 id: uuidv4(),
                 title: req.body.title,
                 category: req.body.category,
+                country: req.body.country,
                 duration: req.body.duration,
                 date: req.body.date,
                 screeningTime: req.body.screeningTime,
@@ -33,6 +34,7 @@ router.post('/', letin, imgMidle.upload.single('img'), async (req, res) => {
                 editor: req.body.editor,
                 cast: req.body.cast,
                 fLink: req.body.fLink,
+                show: req.body.show,
                 userId: req.userId
             })
             await film.save(console.log("Added"))
@@ -42,6 +44,7 @@ router.post('/', letin, imgMidle.upload.single('img'), async (req, res) => {
                 id: uuidv4(),
                 title: req.body.title,
                 category: req.body.category,
+                country: req.body.country,
                 duration: req.body.duration,
                 date: req.body.date,
                 screeningTime: req.body.screeningTime,
@@ -54,9 +57,11 @@ router.post('/', letin, imgMidle.upload.single('img'), async (req, res) => {
                 editor: req.body.editor,
                 cast: req.body.cast,
                 fLink: req.body.fLink,
+                show: req.body.show,
                 userId: req.userId
             })
             await film.save(console.log("Added without Photo"))
+            console.log(req.body)
             res.redirect('addfilm')
         }
     } catch (err) {

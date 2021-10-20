@@ -2,15 +2,15 @@ const express = require('express')
 const path = require('path')
 const app = express()
 const PORT = 3000
-const moment = require('moment');
+require('dotenv').config()
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars');
 const session = require('express-session');
 const csurf = require('csurf')
 const MongoDBStore = require('connect-mongodb-session')(session);
 const authMidle = require('../middlewares/auth')
-const MONGODB_URI = 'mongodb://localhost:27017/sieff'
-const salt = 'jlN([V;+m-<}zIu++T):*j1g`6!Gjyj%U?jijohjviZ%jjF@j$-j&jj+?wg*;(V?)^wun/'
+const MONGODB_URI = process.env.DB_HOST
+const salt = process.env.SALT
 
 const store = new MongoDBStore(
     {collection: 'session', uri: MONGODB_URI, databaseName: 'sieff'}
@@ -73,6 +73,7 @@ const addFilm = require('../routes/addfilm.route');
 const schedule = require('../routes/schedule.route');
 const film = require('../routes/film.route');
 const login = require('../routes/login.route');
+const err404 = require('../routes/404.route');
 
 app.use('/', main)
 app.use('/about', about)
@@ -81,5 +82,6 @@ app.use('/schedule', schedule)
 app.use('/admin/addfilm', addFilm)
 app.use('/film/', film)
 app.use('/auth/', login)
+app.use('/', err404)
 
 module.exports.start = start

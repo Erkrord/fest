@@ -2,8 +2,9 @@ const {Schema, model, SchemaTypes} = require('mongoose');
 
 const Film = new Schema({
     id: String,
-    title: Buffer,
+    title: String,
     category: String,
+    country: String,
     duration: String,
     date: String,
     screeningTime: String,
@@ -16,6 +17,9 @@ const Film = new Schema({
     editor: String,
     cast: String,
     fLink: String,
+    show: {
+        type: String,
+    }
 });
 
 module.exports = model('Film', Film)

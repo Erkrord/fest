@@ -29,6 +29,26 @@
                 <div class="card-action film_card">
 
                     <a class="btn" href="/admin/edit/{{id}}">Edit</a>
+
+                    <form action="/admin/edit/visible/{{id}}" method="POST" id="plugForm">
+                        <input class="btnIds" type="hidden" name="id" value="{{id}}">
+                        <input type="hidden" name="_csrf" value="{{@root.tkn}}">
+
+                        <div class="switch">
+
+                            <label>
+                                Off
+                                <input
+                                    class="btns"
+                                    type="checkbox"
+                                    name="show"
+                                    value="{{show}}"
+                                    onclick="submit()">
+                                <span class="lever"></span>
+                                On
+                            </label>
+                        </div>
+                    </form>
                     <form action="/admin/remove/{{id}}" method="POST">
                         <input type="hidden" name="id" value=""/>
                         <input type="hidden" name="_csrf" value="{{@root.tkn}}">
@@ -39,3 +59,17 @@
         </div>
     </div>
 {{/each}}
+
+<script type="text/javascript">
+    let btns = document.querySelectorAll('.btns')
+    let form = document.getElementById('plugForm')
+    for (let i = 0; i < btns.length; i++) {
+        if (btns[i].value === 'show') {
+            btns[i].checked = true
+            btns[i].value = 'hide'
+        } else {
+            btns[i].checked = false
+            btns[i].value = 'show'
+        }
+    }
+</script>

@@ -122,52 +122,80 @@
                                                             value="{{film.fLink}}">
                                                             <label for="director">Film ID (ex: 403770068)</label>
                                                         </div>
-
-                                                        <div class="file-field input-field col s6">
-                                                            <div class="btn">
-                                                                <span>IMG</span>
-                                                                <input type="file" name="img" value="{{film.img}}"></div>
-                                                                <div class="file-path-wrapper">
-                                                                    <input class="file-path validate" type="text" value="{{film.img}}"></div>
-                                                                </div>
-
-                                                                <div class="input-field col s12">
-                                                                    <textarea id="description" name="description" class="materialize-textarea">{{film.description}}</textarea>
-                                                                    <label for="description">Description</label>
-                                                                </div>
+                                                        <div class="switch">
+                                                            <label>
+                                                                Off
+                                                                <input class="btns" type="checkbox" name="show" value="{{film.show}}">
+                                                                    <span class="lever"></span>
+                                                                    On
+                                                                </label>
                                                             </div>
-                                                            <button class="btn waves-effect waves-light">Update
-                                                            </button>
-                                                        </div>
 
+                                                            <div class="file-field input-field col s6">
+                                                                <div class="btn">
+                                                                    <span>IMG</span>
+                                                                    <input type="file" name="img" value="{{film.img}}"></div>
+                                                                    <div class="file-path-wrapper">
+                                                                        <input class="file-path validate" type="text" value="{{film.img}}"></div>
+                                                                    </div>
+                                                                    <div class="input-field col s6">
+                                                                        <input
+                                                                            placeholder="Country"
+                                                                            id="country"
+                                                                            name="country"
+                                                                            type="text"
+                                                                            class="validate"
+                                                                            value="{{film.country}}">
+                                                                            <label for="country">Country</label>
+                                                                        </div>
+                                                                        <div class="input-field col s6">
+                                                                            <textarea id="description" name="description" class="materialize-textarea">{{film.description}}</textarea>
+                                                                            <label for="description">Description</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <button class="btn waves-effect waves-light">Update
+                                                                    </button>
+                                                                </div>
+
+                                                            </div>
+                                                        </form>
                                                     </div>
-                                                </form>
-                                            </div>
-                                        </div>
+                                                </div>
 
-                                        <script type="text/javascript">
-                                            document.addEventListener('DOMContentLoaded', function () {
-                                                var options = {
-                                                    format: 'mmm dd'
-                                                }
-                                                var elems = document.querySelectorAll('.datepicker');
-                                                var instances = M
-                                                    .Datepicker
-                                                    .init(elems, options);
-                                            });
-                                            document.addEventListener('DOMContentLoaded', function () {
-                                                var options = {
-                                                    twelveHour: false
-                                                }
-                                                var elems = document.querySelectorAll('.timepicker');
-                                                var instances = M
-                                                    .Timepicker
-                                                    .init(elems, options);
-                                            });
-                                            document.addEventListener('DOMContentLoaded', function () {
-                                                const elems = document.querySelectorAll('select');
-                                                const instances = M
-                                                    .FormSelect
-                                                    .init(elems);
-                                            });
-                                        </script>
+                                                <script type="text/javascript">
+                                                    document.addEventListener('DOMContentLoaded', function () {
+                                                        var options = {
+                                                            format: 'mmm dd'
+                                                        }
+                                                        var elems = document.querySelectorAll('.datepicker');
+                                                        var instances = M
+                                                            .Datepicker
+                                                            .init(elems, options);
+                                                    });
+                                                    document.addEventListener('DOMContentLoaded', function () {
+                                                        var options = {
+                                                            twelveHour: false
+                                                        }
+                                                        var elems = document.querySelectorAll('.timepicker');
+                                                        var instances = M
+                                                            .Timepicker
+                                                            .init(elems, options);
+                                                    });
+                                                    document.addEventListener('DOMContentLoaded', function () {
+                                                        const elems = document.querySelectorAll('select');
+                                                        const instances = M
+                                                            .FormSelect
+                                                            .init(elems);
+                                                    });
+                                                    let btns = document.querySelectorAll('.btns')
+                                                    for (let i = 0; i < btns.length; i++) {
+                                                        if (btns[i].value === 'show') {
+                                                            btns[i].checked = true
+                                                            btns[i].value = 'hide'
+                                                        } else {
+                                                            btns[i].checked = false
+                                                            btns[i].value = 'show'
+                                                        }
+                                                    }
+                                                    console.log(btns)
+                                                </script>

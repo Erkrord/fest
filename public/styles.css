@@ -11,6 +11,117 @@
 body {
     background: #f7f9fb;
 }
+/*PAGE 404 START*/
+#notfound {
+    position: relative;
+    height: 100vh;
+}
+
+#notfound .notfound {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.notfound {
+    max-width: 560px;
+    width: 100%;
+    padding-left: 160px;
+    line-height: 1.1;
+}
+
+.notfound .notfound-404 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    width: 140px;
+    height: 140px;
+    background-image: url("../img/emoji.png");
+    background-size: cover;
+}
+
+.notfound .notfound-404:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: scale(2.4);
+    -ms-transform: scale(2.4);
+    transform: scale(2.4);
+    border-radius: 50%;
+    background-color: #f2f5f8;
+    z-index: -1;
+}
+
+.notfound h1 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 65px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #151723;
+    text-transform: uppercase;
+}
+
+.notfound h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 21px;
+    font-weight: 400;
+    margin: 0;
+    text-transform: uppercase;
+    color: #151723;
+}
+
+.notfound p {
+    font-family: 'Nunito', sans-serif;
+    color: #999fa5;
+    font-weight: 400;
+}
+
+.notfound a {
+    font-family: 'Nunito', sans-serif;
+    display: inline-block;
+    font-weight: 700;
+    border-radius: 40px;
+    text-decoration: none;
+    color: #388dbc;
+}
+
+@media only screen and (max-width: 767px) {
+    .notfound .notfound-404 {
+        width: 110px;
+        height: 110px;
+    }
+    .notfound {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 110px;
+    }
+}
+
+/*PAGE 404 END*/
+/*FILM PLUG START*/
+#filmPlug {
+    width: 640px;
+    height: 360px;
+    background-size: cover;
+
+}
+.plugMask{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #00000087;
+    color: #fff;
+    font-size: 2em;
+    text-align: center;
+    line-height: 360px;
+}
+/*FILM PLUG END*/
 .pull-right {
     float: right !important;
 }
@@ -49,6 +160,12 @@ i.icon-red {
     user-select: none;
     margin-left: 1%;
     color: #000;
+}
+.img-block {
+    width: 1200px;
+    height: 500px;
+    box-shadow: inset 0 0 63px 63px #000;
+    background-size: cover;
 }
 .filterBtns {
     margin-left: 86%;
@@ -136,6 +253,13 @@ i.icon-red {
 }
 .film-border-goldenrod {
     border-top: 8px solid goldenrod;
+}
+.filmSubtitle {
+    font: 14px/18px Montserrat;
+    font-weight: normal;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-top: 5%;
 }
 
 /***************CHUNK*****************/
@@ -498,11 +622,7 @@ iframe {
         font-size: calc(30px + 15 * (100vw - 320px) / 880);
     }
 }
-@media screen and (min-width: 1200px) {
-    .heading-1 {
-        font-size: 45px;
-    }
-}
+@media screen and (min-width: 1200px) {}
 .heading-2 {
     font-family: Montserrat;
     font-weight: 700;
@@ -640,7 +760,63 @@ small.hind-text {
 .heading-2.h-tag:before {
     height: 16px;
 }
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 800px) {
+    .Film {
+        display: block !important;
+    }
+    .Film_img-container {
+        background-size: cover;
+        width: 100%;
+        height: 200px;
+        display: block;
+        border-right: none;
+
+    }
+    .container-fluid {
+        margin-left: auto;
+    }
+    .bg-wrapper {
+        margin-top: -6%;
+    }
+    .img-block {
+        max-width: 100%;
+        max-height: 250px;
+        box-shadow: inset 0 0 63px 43px #000;
+        background-position: center;
+    }
+    .container--content {
+        margin: 5%;
+    }
+    .Film .Film_summary {
+        display: none;
+    }
+    .card-image-red {
+        border-bottom: 8px solid #e2007a;
+    }
+    .card-image-blue {
+        border-bottom: 8px solid #5064FF;
+    }
+    .card-image-purple {
+        border-bottom: 8px solid purple;
+    }
+    .card-image-orange {
+        border-bottom: 8px solid #ffa502;
+    }
+    .card-image-yellow {
+        border-bottom: 8px solid rgb(199, 199, 10);
+    }
+    .card-image-black {
+        border-bottom: 8px solid #03191b;
+    }
+    .card-image-green {
+        border-bottom: 8px solid #16a085;
+    }
+    .card-image-brown {
+        border-bottom: 8px solid brown;
+    }
+    .card-image-goldenrod {
+        border-bottom: 8px solid goldenrod;
+    }
     .heading-2.h-tag:before {
         height: calc(16px + 10 * (100vw - 320px) / 880);
     }
@@ -1238,23 +1414,23 @@ hr.devider {
 .festival-archive .Filters {
     display: none;
 }
-.FilmHeader {
+.filmHeader {
     background: #000;
     position: relative;
     color: #fff;
 }
 @media (max-width: 768px) {
-    .events-show .FilmHeader .container,
-    .festival-archive .FilmHeader .container {
+    .events-show .filmHeader .container,
+    .festival-archive .filmHeader .container {
         width: 100%;
     }
 }
-.events-show .FilmHeader .FilmHeader_img-container,
-.festival-archive .FilmHeader .FilmHeader_img-container {
+.events-show .filmHeader .filmHeader_img-container,
+.festival-archive .filmHeader .filmHeader_img-container {
     position: relative;
     padding: 0;
 }
-.FilmHeader__mask {
+.filmHeader__mask {
     position: absolute;
     top: 0;
     right: 0;
@@ -1263,13 +1439,13 @@ hr.devider {
     box-shadow: inset 0 -63px 63px -10px #000;
 }
 @media (min-width: 600px) {
-    .events-show .FilmHeader .FilmHeader__mask,
-    .festival-archive .FilmHeader .FilmHeader__mask {
+    .events-show .filmHeader .filmHeader__mask,
+    .festival-archive .filmHeader .filmHeader__mask {
         box-shadow: inset 0 0 63px 63px #000;
     }
 }
-.events-show .FilmHeader .FilmHeader__content,
-.festival-archive .FilmHeader .FilmHeader__content {
+.events-show .filmHeader .filmHeader__content,
+.festival-archive .filmHeader .filmHeader__content {
     position: absolute;
     top: 20px;
     bottom: 0;
@@ -1280,36 +1456,36 @@ hr.devider {
     justify-content: space-between;
 }
 @media (min-width: 992px) {
-    .events-show .FilmHeader .FilmHeader__content,
-    .festival-archive .FilmHeader .FilmHeader__content {
+    .events-show .filmHeader .filmHeader__content,
+    .festival-archive .filmHeader .filmHeader__content {
         top: 60px;
         bottom: 70px;
     }
 }
-.events-show .FilmHeader .heading-3,
-.festival-archive .FilmHeader .heading-3 {
+.events-show .filmHeader .heading-3,
+.festival-archive .filmHeader .heading-3 {
     font-size: 20px;
 }
 @media screen and (min-width: 320px) {
-    .events-show .FilmHeader .heading-3,
-    .festival-archive .FilmHeader .heading-3 {
+    .events-show .filmHeader .heading-3,
+    .festival-archive .filmHeader .heading-3 {
         font-size: calc(20px + 10 * (100vw - 320px) / 880);
     }
 }
 @media screen and (min-width: 1200px) {
-    .events-show .FilmHeader .heading-3,
-    .festival-archive .FilmHeader .heading-3 {
+    .events-show .filmHeader .heading-3,
+    .festival-archive .filmHeader .heading-3 {
         font-size: 30px;
     }
 }
-.events-show .FilmHeader .heading-4,
-.festival-archive .FilmHeader .heading-4 {
+.events-show .filmHeader .heading-4,
+.festival-archive .filmHeader .heading-4 {
     font-family: Montserrat;
     font-weight: 600;
 }
 @media (min-width: 992px) {
     .film-container {
-        top: -50px;
+        top: -10px;
     }
 }
 .events-show .film-container--blue,
@@ -1360,43 +1536,28 @@ hr.devider {
         text-align: center;
     }
 }
-.FilmTitle {
+.filmTitle {
     margin-left: 0;
+    line-height: 0.1;
 }
 @media (max-width: 480px) {
     .FilmTitle {
         text-align: center;
     }
 }
-.events-show .FilmGenres,
-.festival-archive .FilmGenres {
-    margin-bottom: 10px;
-}
-@media (max-width: 480px) {
-    .events-show .FilmGenres,
-    .festival-archive .FilmGenres {
-        text-align: center;
-    }
-}
-@media (min-width: 992px) {
-    .events-show .FilmGenres,
-    .festival-archive .FilmGenres {
-        margin-bottom: 100px;
-    }
-}
-.FilmGenres span {
+
+@media (max-width: 480px) {}
+@media (min-width: 992px) {}
+.filmGeners span {
     color: #242626;
     font: 500 16px/30px Hind;
     border-top: 1px solid #242626;
+    padding-top: 0.4%;
 }
-.events-show .FilmSynopsis,
-.festival-archive .FilmSynopsis {
-    margin-bottom: 20px;
-    font-family: Hind;
-    font-weight: 500;
-    color: #141414;
-    font-size: 16px;
+.filmSynopsis {
+    font-size: 24px;
 }
+
 @media screen and (min-width: 320px) {
     .events-show .FilmSynopsis,
     .festival-archive .FilmSynopsis {
@@ -1431,11 +1592,14 @@ hr.devider {
     width: 100%;
     height: auto;
 }
-.events-show .dateTime,
-.festival-archive .dateTime {
-    font-family: Hind;
-    font-size: 14px;
+
+.dateTime {
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 700;
+    margin-bottom: 5%;
 }
+
 @media screen and (min-width: 320px) {
     .events-show .dateTime,
     .festival-archive .dateTime {
@@ -1454,36 +1618,27 @@ hr.devider {
     font: 14px/20px Hind;
     font-weight: 400;
 }
-.events-show .FilmSectionBlocks,
-.festival-archive .FilmSectionBlocks {
+.filmSectionBlocks {
     display: flex;
     flex-wrap: wrap;
 }
-.events-show .FilmSectionBlock,
-.festival-archive .FilmSectionBlock {
+.filmSectionBlock {
     padding: 20px;
     width: 50%;
 }
-.events-show .FilmSectionSubtitle,
-.festival-archive .FilmSectionSubtitle {
+.filmSectionSubtitle {
     font: 700 16px/30px Hind;
     text-transform: uppercase;
 }
-.events-show .FilmSectionContent,
-.festival-archive .FilmSectionContent {
-    font-family: Hind;
-    font-weight: 400;
-    font-size: 16px;
-}
 @media screen and (min-width: 320px) {
-    .events-show .FilmSectionContent,
-    .festival-archive .FilmSectionContent {
+    .filmSectionContent {
         font-size: calc(16px + 2 * (100vw - 320px) / 880);
     }
 }
 @media screen and (min-width: 1200px) {
-    .events-show .FilmSectionContent,
-    .festival-archive .FilmSectionContent {
+    .filmSectionContent {
+        font-family: Hind;
+        font-weight: 400;
         font-size: 18px;
     }
 }
