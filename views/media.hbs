@@ -1,0 +1,35 @@
+<h1>Welcome</h1>
+{{#each media}}
+    <a data-target="modal1" class="modal-trigger"><img src="http://localhost:3000/uploads/{{img}}" height="180" width="250"></a>
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>{{img}}</h4>
+            <img src="http://localhost:3000/uploads/{{img}}" style="max-width: 1200px; max-height: 720px;">
+
+        </div>
+        <div class="modal-footer">
+            <form action="/admin/elem/{{img}}/{{_id}}" method="POST">
+                <input type="hidden" name="_csrf" value="{{@root.tkn}}">
+                <button class="btn red">Delete</button>
+            </form>
+        </div>
+    </div>
+{{/each}}
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        let elems = document.querySelectorAll('.modal');
+        let instances = M
+            .Modal
+            .init(elems);
+        for (let i = 0; i < elems.length; i++) {
+            elems[i].id = 'modal' + i
+            console.log(elems[i]);
+        }
+        let modalTarget = document.querySelectorAll('.modal-trigger');
+        for (let i = 0; i < modalTarget.length; i++) {
+            modalTarget[i].dataset.target = 'modal' + i
+        }
+
+    });
+</script>

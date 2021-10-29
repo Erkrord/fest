@@ -1,0 +1,42 @@
+<div class="fixed-action-btn">
+    <a class="waves-effect waves-light btn modal-trigger teal darken-4" href="#sbs">Subscribe</a><br />
+    {{#if subscribed}}
+        <p>{{subscribed}}</p>
+    {{/if}}
+</div>
+
+<!-- SBS Structure -->
+<div id="sbs" class="modal sbs">
+    <div class="modal-content offset-s3">
+        <h4>Stay Informed</h4>
+        <p>Sign up to learn more about upcoming events, activities, and our work to
+            preserving the wildlife and cultural values of Armenia.</p>
+    </div>
+
+    <div class="row">
+        <form action="/sbs" method="POST">
+            <div class="row">
+                <div class="input-field col s6  offset-s3">
+                    <input
+                        required="required"
+                        id="email"
+                        type="email"
+                        class="validate"
+                        name="sbsemail">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field col s6 offset-s3">
+                        <input type="hidden" name="_csrf" value="{{tkn}}">
+                            <button type="submit" class="btn btn-primary grey darken-4">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+
+                <script type="text/javascript">
+                    document.addEventListener('DOMContentLoaded', function () {
+                        var elems = document.querySelectorAll('.modal');
+                        var instances = M
+                            .Modal
+                            .init(elems);
+                    });
+                </script>

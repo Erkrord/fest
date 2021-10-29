@@ -6,19 +6,26 @@
 
             {{> cards}}
         </div>
-        
+
     </div>
 {{else}}
-    <h2>Empty</h2>
+
+    <div class="container--content">
+
+        <h2>No Film Found!</h2>
+
+    </div>
 
 {{/if}}
 
+        {{> partners}}
+        {{> subscribe}}
 <style type="text/css">
     .Film {
-    min-height: 250px;
-    position: relative;
-    margin-bottom: 20px;
-    background: #fff;
-    display: flex;
-}
+        min-height: 250px;
+        position: relative;
+        margin-bottom: 20px;
+        background: #fff;
+        display: flex;
+    }
 </style>

@@ -2,8 +2,8 @@ const express = require('express');
 const Film = require('../models/film.model')
 const router = express.Router();
 
-router.get('/:id', async (req, res) => {
-    const film = await Film.findOne({id: req.params.id})
+router.get('/:slug', async (req, res) => {
+    const film = await Film.findOne({slug: req.params.slug})
 
     if (film !== null) {
         res.render('film', {

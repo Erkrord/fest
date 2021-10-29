@@ -2,9 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Film = require('../models/film.model')
 const User = require('../models/user.model')
+const Media = require('../models/media.model')
+const Partner = require('../models/partner.model')
 const imgMidle = require('../middlewares/image.js')
 const letin = require('../middlewares/letin')
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs')
+const fs = require('fs')
 
 router.get('/', letin, async (req, res) => {
     const film = await Film
@@ -43,7 +46,9 @@ router.post('/edit/visible/:id', letin, async (req, res) => {
     try {
         if (req.body.show) {
             req.body.show = req.body.show
-        }else{req.body.show = 'hide'}
+        } else {
+            req.body.show = 'hide'
+        }
         await Film.updateOne({
             id: req.params.id
         }, {show: req.body.show})
@@ -62,7 +67,9 @@ router.post(
         try {
             if (req.body.show) {
                 req.body.show = req.body.show
-            }else{req.body.show = 'hide'}
+            } else {
+                req.body.show = 'hide'
+            }
             if (req.file) {
                 await Film.updateOne({
                     id: req.params.id
@@ -70,10 +77,8 @@ router.post(
                     ...req.body,
                     img: req.file.filename
                 })
-            } else {
-                await Film.updateOne({
-                    id: req.params.id
-                }, req.body)
+                const media = Media({img: req.file.filename})
+                await media.save(console.log("Image Added"))
             }
             res.redirect('/admin')
             console.log('Ok')
@@ -125,4 +130,65 @@ router.post('/adduser', letin, async (req, res) => {
     }
 })
 
+router.get('/media', letin, async (req, res) => {
+    const media = await Media
+        .find()
+        .lean()
+    res.render('media', {
+        layout: 'admin.hbs',
+        title: 'Media',
+        isMedia: true,
+        media
+    });
+})
+router.post('/elem/:img/:id', letin, async (req, res) => {
+    try {
+        await Media.deleteOne({_id: req.params.id})
+        fs.unlink('uploads/\/' + req.params.img, (err) => {
+            if (err) {
+                console.log("failed to delete local image:" + err);
+            } else {
+                console.log('successfully deleted local image');
+            }
+        });
+        res.redirect('/admin/media')
+    } catch (err) {
+        console.log(err);
+    }
+})
+router.get('/addpartner', letin, async (req, res) => {
+    const partner = await Partner
+        .find()
+        .lean()
+    res.render('addpartner', {
+        layout: 'admin.hbs',
+        title: 'Add Partner',
+        isAddPartner: true,
+        partner
+    });
+})
+router.post('/addpartner', letin, imgMidle.upload.single('img'), async (req, res) => {
+    try {
+        const partner = Partner({
+            name: req.body.name,
+            img: req.file.filename,
+            link: req.body.link,
+        })
+        await partner.save(console.log("Partner added"))
+        const media = Media({img: req.file.filename})
+        await media.save(console.log("Image Added"))
+            res.redirect('addpartner')
+    } catch (err) {
+        console.log(err);
+    }
+})
+router.post('/remove-partner/:id', async (req, res) => {
+    try {
+        await Partner.deleteOne({_id: req.params.id})
+        res.redirect('../addpartner');
+    } catch (err) {
+        console.log(err)
+    }
+
+})
 module.exports = router;

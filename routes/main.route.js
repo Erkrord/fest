@@ -1,15 +1,22 @@
 const express = require('express');
 const Film = require('../models/film.model')
+const Partner = require('../models/partner.model')
+const Subscribe = require('../models/subscribe.model')
 const router = express.Router();
 
 router.get('/', async (req, res) => {
     const film = await Film
         .find()
         .lean()
+    const partner = await Partner
+        .find()
+        .lean()
     res.render('browse', {
         title: "Main",
         ishome: true,
-        film
+        film,
+        partner,
+        subscribed: req.flash('subscribed')
     });
 });
 
@@ -26,6 +33,18 @@ router.post('/', async (req, res) => {
 });
 
 
+router.post('/sbs', async (req, res) => {
+    try {
+        const subscribe = Subscribe({
+            email: req.body.sbsemail,
+        })
+        await subscribe.save()
+            req.flash('subscribed', 'You are now subscribed!')
+            res.redirect('/')
+    } catch (err) {
+        console.log(err);
+    }
+})
 
 
 module.exports = router;

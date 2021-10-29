@@ -6,11 +6,14 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars');
 const session = require('express-session');
+const flash = require('connect-flash');
 const csurf = require('csurf')
 const MongoDBStore = require('connect-mongodb-session')(session);
 const authMidle = require('../middlewares/auth')
 const MONGODB_URI = process.env.DB_HOST
 const salt = process.env.SALT
+const slug = require('mongoose-slug-generator')
+mongoose.plugin(slug)
 
 const store = new MongoDBStore(
     {collection: 'session', uri: MONGODB_URI, databaseName: 'sieff'}
@@ -27,7 +30,7 @@ app.use(
 
 app.use(csurf())
 app.use(authMidle)
-
+app.use(flash());
 // Register `hbs.engine` with the Express app.
 app.engine('hbs', exphbs({
     defaultLayout: 'main',

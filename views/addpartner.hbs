@@ -1,0 +1,61 @@
+{{> head}}
+
+<div class="row">
+    <div class="input-field col s6  offset-s3">
+        <h2>{{{title}}}</h2>
+    </div>
+    <form action="/admin/addpartner?_csrf={{tkn}}" method="POST" enctype="multipart/form-data">
+        <div class="row">
+            <div class="input-field col s6  offset-s3">
+                <input required="required" id="uName" type="text" class="validate" name="name">
+                <label for="uName">Name</label>
+            </div>
+        </div>
+            <div class="file-field input-field col s6 offset-s3">
+                <div class="btn">
+                    <span>IMG</span>
+                    <input type="file" name="img"></div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text"></div>
+            </div>
+            <div class="input-field col s6 offset-s3">
+                <input
+                    placeholder="Link"
+                    id="link"
+                    name="link"
+                    type="text"
+                    class="validate">
+                <label for="director">Link</label>
+            </div>
+            <div class="input-field col s6 offset-s3">
+                <button type="submit" class="btn btn-primary">Add Partner</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s6  offset-s3">
+            {{#each partner}}
+                <ul class="collection s6  offset-s3">
+                    <li class="collection-item avatar">
+                        <img src="http://localhost:3000/uploads/{{img}}" width="50px">  <br />
+                        <span class="title">{{name}}</span>
+                        <p>{{link}}
+                        </p>
+                        <form id="usDel" action="/admin/remove-partner/{{_id}}" method="POST">
+                            <input type="hidden" name="id" value=""/>
+                            <input type="hidden" name="_csrf" value="{{@root.tkn}}">
+                            <input
+                                type="submit"
+                                name=""
+                                class="material-icons icon-red secondary-content"
+                                value="delete">
+                        </form>
+                    </li>
+                </ul>
+            {{/each}}
+        </div>
+
+    </div> 
+
+    {{> footer}}

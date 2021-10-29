@@ -11,6 +11,17 @@
 body {
     background: #f7f9fb;
 }
+/*SUBSCRIBE MODAL START*/
+.sbs{
+    text-align: center;
+    background-color: #fafafad8;
+}
+/*SUBSCRIBE MODAL END*/
+/*PARTNERS START*/
+.hind-text{
+    text-align: center
+}
+/*PARTNERS END*/
 /*PAGE 404 START*/
 #notfound {
     position: relative;
@@ -708,33 +719,22 @@ iframe {
 .hind-text {
     font-family: Hind;
     font-weight: 400;
-    font-size: 16px;
 }
 @media screen and (min-width: 320px) {
     .hind-text {
         font-size: calc(16px + 5 * (100vw - 320px) / 880);
     }
 }
-@media screen and (min-width: 1200px) {
-    .hind-text {
-        font-size: 21px;
-    }
-}
 small.hind-text {
     font-family: Hind;
     font-weight: 400;
-    font-size: 12px;
 }
 @media screen and (min-width: 320px) {
     small.hind-text {
         font-size: calc(12px + 2 * (100vw - 320px) / 880);
     }
 }
-@media screen and (min-width: 1200px) {
-    small.hind-text {
-        font-size: 14px;
-    }
-}
+
 .h-tag:before {
     content: " ";
     display: inline-block;

@@ -1,6 +1,6 @@
 const {v4: uuidv4} = require('uuid')
 const Film = require('../models/film.model')
-const User = require('../models/user.model')
+const Media = require('../models/media.model')
 const express = require('express');
 const router = express.Router();
 const imgMidle = require('../middlewares/image.js')
@@ -16,6 +16,11 @@ router.get('/', letin, (req, res) => {
 
 router.post('/', letin, imgMidle.upload.single('img'), async (req, res) => {
     try {
+        // let title = req.body.title
+        // await Film.findOne({title: title}, () =>{
+        //     let i = 0
+        // })
+        // console.log(title)
         if (req.file) {
             const film = Film({
                 id: uuidv4(),
@@ -37,7 +42,11 @@ router.post('/', letin, imgMidle.upload.single('img'), async (req, res) => {
                 show: req.body.show,
                 userId: req.userId
             })
+            const media = Media({
+                img: req.file.filename,
+            })
             await film.save(console.log("Added"))
+            await media.save(console.log("Added"))
             res.redirect('addfilm')
         } else {
             const film = Film({
