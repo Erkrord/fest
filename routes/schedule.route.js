@@ -18,7 +18,8 @@ router.get('/', async (req, res) => {
         isActive: true,
         isschedule: true,
         film,
-        date
+        date,
+        subscribed: req.flash('subscribed')
     });
 
 });

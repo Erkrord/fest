@@ -1,10 +1,13 @@
 <div class="fixed-action-btn">
     <a class="waves-effect waves-light btn modal-trigger teal darken-4" href="#sbs">Subscribe</a><br />
     {{#if subscribed}}
-        <p>{{subscribed}}</p>
+        <script type="text/javascript">
+            iziToast.show({
+                    title: 'You have successfully subscribed !',
+                    color: 'green'
+                    });
+        </script>
     {{/if}}
-</div>
-
 <!-- SBS Structure -->
 <div id="sbs" class="modal sbs">
     <div class="modal-content offset-s3">
@@ -26,17 +29,22 @@
                         <label for="email">Email</label>
                     </div>
                     <div class="input-field col s6 offset-s3">
+                        <input id="urlInp" type="hidden" name="url" value="">
                         <input type="hidden" name="_csrf" value="{{tkn}}">
-                            <button type="submit" class="btn btn-primary grey darken-4">Subscribe</button>
+                            <button id='sbsBtn' type="submit" class="btn btn-primary grey darken-4">Subscribe</button>
                         </div>
                     </form>
                 </div>
 
                 <script type="text/javascript">
                     document.addEventListener('DOMContentLoaded', function () {
-                        var elems = document.querySelectorAll('.modal');
-                        var instances = M
+                        let elems = document.querySelectorAll('.modal');
+                        let instances = M
                             .Modal
                             .init(elems);
+                        const urlInp = document.getElementById('urlInp')
+                        let url = window.location.href
+                        urlInp.value = url
+
                     });
                 </script>

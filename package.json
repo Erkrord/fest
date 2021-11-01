@@ -22,6 +22,7 @@
         "dotenv": "^10.0.0",
         "express-handlebars": "^5.3.4",
         "express-session": "^1.17.2",
+        "izitoast": "^1.4.0",
         "moment": "^2.29.1",
         "mongoose": "^5.13.9",
         "mongoose-slug-generator": "^1.0.4",

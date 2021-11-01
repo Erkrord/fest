@@ -8,7 +8,8 @@ router.get('/:slug', async (req, res) => {
     if (film !== null) {
         res.render('film', {
             title: "Film",
-            film
+            film,
+            subscribed: req.flash('subscribed')
         });
     }
     else{

@@ -34,13 +34,14 @@ router.post('/', async (req, res) => {
 
 
 router.post('/sbs', async (req, res) => {
+    let url = req.body.url
     try {
         const subscribe = Subscribe({
             email: req.body.sbsemail,
         })
         await subscribe.save()
             req.flash('subscribed', 'You are now subscribed!')
-            res.redirect('/')
+            res.redirect(url)
     } catch (err) {
         console.log(err);
     }

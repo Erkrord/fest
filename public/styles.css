@@ -11,17 +11,18 @@
 body {
     background: #f7f9fb;
 }
+/*PARTNERS START*/
+.hind-text{
+    text-align: center;
+    font-size: ;
+}
+/*PARTNERS END*/
 /*SUBSCRIBE MODAL START*/
 .sbs{
     text-align: center;
     background-color: #fafafad8;
 }
 /*SUBSCRIBE MODAL END*/
-/*PARTNERS START*/
-.hind-text{
-    text-align: center
-}
-/*PARTNERS END*/
 /*PAGE 404 START*/
 #notfound {
     position: relative;
@@ -179,7 +180,7 @@ i.icon-red {
     background-size: cover;
 }
 .filterBtns {
-    margin-left: 86%;
+    margin-left: 85%;
 }
 
 .filterForm {
@@ -725,16 +726,11 @@ iframe {
         font-size: calc(16px + 5 * (100vw - 320px) / 880);
     }
 }
-small.hind-text {
-    font-family: Hind;
-    font-weight: 400;
-}
 @media screen and (min-width: 320px) {
     small.hind-text {
         font-size: calc(12px + 2 * (100vw - 320px) / 880);
     }
 }
-
 .h-tag:before {
     content: " ";
     display: inline-block;
@@ -761,6 +757,18 @@ small.hind-text {
     height: 16px;
 }
 @media screen and (max-width: 800px) {
+    .filterBtns{
+        margin-left: 0;
+    }
+    [type="checkbox"] + span:not(.lever) {
+        content: none;
+        padding-left: 7.9%;
+        display: block;
+    }
+    #filmPlug{
+        max-width: 340px;
+        font-size: 8px;
+    }
     .Film {
         display: block !important;
     }
