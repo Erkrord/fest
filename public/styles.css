@@ -14,6 +14,11 @@
 body {
     background: #f7f9fb;
 }
+/*SIDEBAR START*/
+nav .sidenav-trigger{
+    float: right;
+}
+/*SIDEBAR END*/
 /*PARTNERS START*/
 .hind-text,.copyright{
     text-align: center;
