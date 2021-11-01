@@ -30,7 +30,10 @@
                             |</span>
                         <span>
                             {{film.duration}}
-                            min</span>
+                            min |</span>
+                            <span>
+                            {{film.languages}}
+                            </span>
                     </div>
                     <h1 class="heading-1 filmTitle">{{film.title}}</h1>
                     <div id="filmGenres" class="filmGeners">
@@ -107,6 +110,7 @@
                             </div>
                         </div>
                     </div>
+                    {{> partners}}
                     {{> subscribe}}
                     <script type="text/javascript">
                         let category = document

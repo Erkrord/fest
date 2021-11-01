@@ -1,6 +1,9 @@
 .nav-wrapper {
     padding: 0 2em;
 }
+.text-center{
+    text-align: center;
+}
 
 .film-card {
     width: 100% !important;
@@ -12,7 +15,7 @@ body {
     background: #f7f9fb;
 }
 /*PARTNERS START*/
-.hind-text{
+.hind-text,.copyright{
     text-align: center;
 }
 /*PARTNERS END*/

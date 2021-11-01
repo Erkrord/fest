@@ -7,6 +7,7 @@ const Film = new Schema({
     slug: { type: String, slug: 'title', slug_padding_size: 1,  unique: true },
     category: String,
     country: String,
+    languages: String,
     duration: String,
     date: String,
     screeningTime: String,

@@ -16,17 +16,13 @@ router.get('/', letin, (req, res) => {
 
 router.post('/', letin, imgMidle.upload.single('img'), async (req, res) => {
     try {
-        // let title = req.body.title
-        // await Film.findOne({title: title}, () =>{
-        //     let i = 0
-        // })
-        // console.log(title)
         if (req.file) {
             const film = Film({
                 id: uuidv4(),
                 title: req.body.title,
                 category: req.body.category,
                 country: req.body.country,
+                languages: req.body.lang,
                 duration: req.body.duration,
                 date: req.body.date,
                 screeningTime: req.body.screeningTime,
@@ -54,6 +50,7 @@ router.post('/', letin, imgMidle.upload.single('img'), async (req, res) => {
                 title: req.body.title,
                 category: req.body.category,
                 country: req.body.country,
+                languages: req.body.lang,
                 duration: req.body.duration,
                 date: req.body.date,
                 screeningTime: req.body.screeningTime,
