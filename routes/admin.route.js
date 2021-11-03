@@ -61,7 +61,7 @@ router.post('/edit/visible/:id', letin, async (req, res) => {
 })
 router.post(
     '/edit/update/:id',
-    imgMidle.upload.single('img'),
+    imgMidle.upload.fields([{name: 'img', maxCount: 1}, {name: 'imgGal', maxCount: 5}]),
     letin,
     async (req, res) => {
         try {
@@ -70,15 +70,45 @@ router.post(
             } else {
                 req.body.show = 'hide'
             }
-            if (req.file) {
+            console.log(req.files.imgGal)
+            if (req.files.img) {
+                const filename = req.files.img.map(function(file) {
+                    return file.filename
+                   })
+                const filenames = req.files.imgGal.map(function(file) {
+                      return file.filename
+                     })
                 await Film.updateOne({
                     id: req.params.id
                 }, {
                     ...req.body,
-                    img: req.file.filename
+                    img: filename.toString(),
+                    imgGal: filenames,
                 })
-                const media = Media({img: req.file.filename})
+                const media = Media({img: filename, img: filenames})
                 await media.save(console.log("Image Added"))
+            }else if(req.files.imgGal){
+                const filenames = req.files.imgGal.map(function(file) {
+                      return file.filename
+                     })
+                await Film.updateOne({
+                    id: req.params.id
+                }, {
+                    ...req.body,
+                    img: null,
+                    imgGal: filenames,
+                })
+                const media = Media({img: filenames})
+                await media.save(console.log("Image Added"))
+            }else{
+                await Film.updateOne({
+                    id: req.params.id
+                }, {
+                   ...req.body,
+                   languages: req.body.lang
+                })
+                
+            console.log(req.body.lang)
             }
             res.redirect('/admin')
             console.log('Ok')

@@ -14,6 +14,20 @@
 body {
     background: #f7f9fb;
 }
+/*FILM GALLERY START*/
+.filmGalColumn {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+  }
+  
+  /* Clear floats after image containers */
+  .filmGalRow::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+/*FILM GALLERY END*/
 /*SIDEBAR START*/
 nav .sidenav-trigger{
     float: right;

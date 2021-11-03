@@ -14,6 +14,7 @@ const Film = new Schema({
     img: { 
         type: Buffer,
     },
+    imgGal: [Buffer],
     description: String,
     director: String,
     producer: String,

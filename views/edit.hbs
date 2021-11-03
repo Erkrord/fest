@@ -138,6 +138,13 @@
                                                                     <div class="file-path-wrapper">
                                                                         <input class="file-path validate" type="text" value="{{film.img}}"></div>
                                                                     </div>
+                                                                       <div class="file-field input-field col s6">
+                                                                    <div class="btn">
+                                                                    <span>IMG Gallery</span>
+                                                                    <input type="file" name="imgGal" multiple></div>
+                                                                    <div class="file-path-wrapper">
+                                                                        <input class="file-path validate" type="text" value="{{film.imgGal}}"></div>
+                                                                    </div>
                                                                     <div class="input-field col s6">
                                                                         <input
                                                                             placeholder="Country"
@@ -147,6 +154,10 @@
                                                                             class="validate"
                                                                             value="{{film.country}}">
                                                                             <label for="country">Country</label>
+                                                                        </div>
+                                                                        <div class="input-field col s6">
+                                                                        <input placeholder="Language" id="lang" name="lang" type="text" class="validate" value="{{film.languages}}">
+                                                                            <label for="lang">Language</label>
                                                                         </div>
                                                                         <div class="input-field col s6">
                                                                             <textarea id="description" name="description" class="materialize-textarea">{{film.description}}</textarea>
