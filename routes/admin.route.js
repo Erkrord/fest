@@ -70,8 +70,7 @@ router.post(
             } else {
                 req.body.show = 'hide'
             }
-            console.log(req.files.imgGal)
-            if (req.files.img) {
+            if (req.files.img && req.files.imgGal) {
                 const filename = req.files.img.map(function(file) {
                     return file.filename
                    })
@@ -86,6 +85,18 @@ router.post(
                     imgGal: filenames,
                 })
                 const media = Media({img: filename, img: filenames})
+                await media.save(console.log("Image Added"))
+            }else if (req.files.img) {
+                const filename = req.files.img.map(function(file) {
+                    return file.filename
+                   })
+                await Film.updateOne({
+                    id: req.params.id
+                }, {
+                    ...req.body,
+                    img: filename.toString(),
+                })
+                const media = Media({img: filename})
                 await media.save(console.log("Image Added"))
             }else if(req.files.imgGal){
                 const filenames = req.files.imgGal.map(function(file) {
