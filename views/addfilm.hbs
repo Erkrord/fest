@@ -14,7 +14,8 @@
                             name="title"
                             id="film_name"
                             type="text"
-                            class="validate">
+                            class="validate"
+                            required>
                             <label for="first_name">Film Name</label>
                         </div>
 
@@ -31,7 +32,6 @@
                             </select>
                             <label>Select Category</label>
                         </div>
-
                         <div class="input-field col s6">
                             <input
                                 placeholder="Type Film Duration in minutes"
@@ -110,85 +110,97 @@
                                                                 <label for="director">Film ID (ex: 403770068)</label>
                                                             </div>
                                                             <div class="switch">
-                                                            <label>
-                                                                Off
-                                                                <input id="plPlug" type="checkbox" name="show" value="hide">
-                                                                    <span class="lever"></span>
-                                                                    On
-                                                                </label>
-                                                            </div>
-
-                                                            <div class="file-field input-field col s6">
-                                                                <div class="btn">
-                                                                    <span>IMG</span>
-                                                                    <input type="file" name="img"></div>
-                                                                    <div class="file-path-wrapper">
-                                                                        <input class="file-path validate" type="text"></div>
-                                                                    </div>
-                                                                    <div class="file-field input-field col s6">
+                                                                <label>
+                                                                    Off
+                                                                    <input id="plPlug" type="checkbox" name="show" value="hide">
+                                                                        <span class="lever"></span>
+                                                                        On
+                                                                    </label>
+                                                                    <label>
+                                                                        <input type="checkbox" class="filled-in" name="event" value="true"/>
+                                                                        <span>Event</span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="file-field input-field col s6">
                                                                     <div class="btn">
-                                                                    <span>IMG Gallery</span>
-                                                                    <input type="file" name="imgGal" multiple></div>
-                                                                    <div class="file-path-wrapper">
-                                                                        <input class="file-path validate" type="text"></div>
-                                                                    </div>
+                                                                        <span>IMG</span>
+                                                                        <input type="file" name="img"></div>
+                                                                        <div class="file-path-wrapper">
+                                                                            <input class="file-path validate" type="text"></div>
+                                                                        </div>
+                                                                        <div class="file-field input-field col s6">
+                                                                            <div class="btn">
+                                                                                <span>IMG Gallery</span>
+                                                                                <input type="file" name="imgGal" multiple="multiple"></div>
+                                                                                <div class="file-path-wrapper">
+                                                                                    <input class="file-path validate" type="text"></div>
+                                                                                </div>
 
-                                                                    <div class="input-field col s6">
-                                                                        <input placeholder="Country" id="country" name="country" type="text" class="validate">
-                                                                            <label for="country">Country</label>
-                                                                        </div>
-                                                                         <div class="input-field col s6">
-                                                                        <input placeholder="Language" id="lang" name="lang" type="text" class="validate">
-                                                                            <label for="lang">Language</label>
-                                                                        </div>
-                                                                        <div class="input-field col s6">
-                                                                            <textarea id="description" name="description" class="materialize-textarea"></textarea>
-                                                                            <label for="description">Description</label>
-                                                                        </div>
+                                                                                <div class="input-field col s6">
+                                                                                    <input
+                                                                                        placeholder="Country"
+                                                                                        id="country"
+                                                                                        name="country"
+                                                                                        type="text"
+                                                                                        class="validate">
+                                                                                        <label for="country">Country</label>
+                                                                                    </div>
+                                                                                    <div class="input-field col s6">
+                                                                                        <input
+                                                                                            placeholder="Language"
+                                                                                            id="lang"
+                                                                                            name="lang"
+                                                                                            type="text"
+                                                                                            class="validate">
+                                                                                            <label for="lang">Language</label>
+                                                                                        </div>
+                                                                                        <div class="input-field col s6">
+                                                                                            <textarea id="description" name="description" class="materialize-textarea"></textarea>
+                                                                                            <label for="description">Description</label>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <button class="btn waves-effect waves-light">Add Film
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
                                                                     </div>
-                                                                    <button class="btn waves-effect waves-light">Add Film
-                                                                    </button>
                                                                 </div>
 
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
+                                                                <script type="text/javascript">
+                                                                    document.addEventListener('DOMContentLoaded', function () {
+                                                                        const options = {
+                                                                            format: 'mmm dd'
+                                                                        }
+                                                                        const elems = document.querySelectorAll('.datepicker');
+                                                                        const instances = M
+                                                                            .Datepicker
+                                                                            .init(elems, options);
 
-                                                <script type="text/javascript">
-                                                    document.addEventListener('DOMContentLoaded', function () {
-                                                        const options = {
-                                                            format: 'mmm dd'
-                                                        }
-                                                        const elems = document.querySelectorAll('.datepicker');
-                                                        const instances = M
-                                                            .Datepicker
-                                                            .init(elems, options);
+                                                                    });
+                                                                    document.addEventListener('DOMContentLoaded', function () {
+                                                                        const options = {
+                                                                            twelveHour: false
+                                                                        }
+                                                                        const elems = document.querySelectorAll('.timepicker');
+                                                                        const instances = M
+                                                                            .Timepicker
+                                                                            .init(elems, options);
+                                                                    });
+                                                                    document.addEventListener('DOMContentLoaded', function () {
+                                                                        const elems = document.querySelectorAll('select');
+                                                                        const instances = M
+                                                                            .FormSelect
+                                                                            .init(elems);
+                                                                    });
+                                                                    let btnn = document.querySelector('#plPlug')
+                                                                    btnn.addEventListener('change', () => {
+                                                                        if (btnn.value === "show") {
+                                                                            btnn.value = "hide"
+                                                                        } else if (btnn.value === "hide") {
+                                                                            btnn.value = "show"
+                                                                        }
+                                                                        console.log(btnn.value)
 
-                                                    });
-                                                    document.addEventListener('DOMContentLoaded', function () {
-                                                        const options = {
-                                                            twelveHour: false
-                                                        }
-                                                        const elems = document.querySelectorAll('.timepicker');
-                                                        const instances = M
-                                                            .Timepicker
-                                                            .init(elems, options);
-                                                    });
-                                                    document.addEventListener('DOMContentLoaded', function () {
-                                                        const elems = document.querySelectorAll('select');
-                                                        const instances = M
-                                                            .FormSelect
-                                                            .init(elems);
-                                                    });
-                                                    let btnn = document.querySelector('#plPlug')
-                                                    btnn.addEventListener('change', () => {
-                                                        if (btnn.value === "show") {
-                                                            btnn.value = "hide"
-                                                        } else if (btnn.value === "hide") {
-                                                            btnn.value = "show"
-                                                        }
-                                                        console.log(btnn.value)
-
-                                                    })
-                                                </script>
+                                                                    })
+                                                                </script>

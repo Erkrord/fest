@@ -65,6 +65,13 @@ router.post(
     letin,
     async (req, res) => {
         try {
+            const isEvent = () => {
+                if (req.body.event){
+                    return true
+                }else{
+                    return false
+                }
+            }
             if (req.body.show) {
                 req.body.show = req.body.show
             } else {
@@ -83,6 +90,7 @@ router.post(
                     ...req.body,
                     img: filename.toString(),
                     imgGal: filenames,
+                    event: isEvent()
                 })
                 const media = Media({img: filename, img: filenames})
                 await media.save(console.log("Image Added"))
@@ -95,6 +103,7 @@ router.post(
                 }, {
                     ...req.body,
                     img: filename.toString(),
+                    event: isEvent()
                 })
                 const media = Media({img: filename})
                 await media.save(console.log("Image Added"))
@@ -108,6 +117,7 @@ router.post(
                     ...req.body,
                     img: null,
                     imgGal: filenames,
+                    event: isEvent()
                 })
                 const media = Media({img: filenames})
                 await media.save(console.log("Image Added"))
@@ -116,7 +126,8 @@ router.post(
                     id: req.params.id
                 }, {
                    ...req.body,
-                   languages: req.body.lang
+                   languages: req.body.lang,
+                   event: isEvent()
                 })
                 
             console.log(req.body.lang)

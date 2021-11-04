@@ -22,7 +22,7 @@
                         <h4 class="heading-4">
                             <a class="film_title" href="/events/beautiful-things-2020">{{title}}</a>
                         </h4>
-                        <div class="Film_summary">{{description}}</div>
+                        <div class="filmSummary">{{description}}</div>
                     </div>
 
                 </div>
@@ -61,6 +61,15 @@
 {{/each}}
 
 <script type="text/javascript">
+     function truncateString(str, num) {
+        if (str.length <= num) {
+            return str
+        }
+        return str.slice(0, num) + ' ...'
+    }
+    let filmSummary = document.querySelector('.filmSummary')
+    let test = truncateString(filmSummary.innerHTML, 360)
+    filmSummary.innerHTML = test
     let btns = document.querySelectorAll('.btns')
     let form = document.getElementById('plugForm')
     for (let i = 0; i < btns.length; i++) {

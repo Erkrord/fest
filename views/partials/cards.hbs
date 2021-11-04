@@ -7,17 +7,19 @@
         <div class="Film_content">
             <div>
                 <div class="pull-right">
-                    <div class="Film_runtime pull-right">Duration:
-                        {{duration}}
-                        min
-                    </div>
+                    {{#unless event}}
+                        <div class="Film_runtime pull-right">Duration:
+                            {{duration}}
+                            min
+                        </div>
+                    {{/unless}}
                 </div>
                 <div class="filmGenre">{{category}}</div>
                 <div class="clearfix"></div>
                 <h4 class="heading-4">
                     <a class="Film_title" href="/film/{{id}}">{{title}}</a>
                 </h4>
-                <div class="Film_summary">{{description}}</div>
+                <div class="filmSummary">{{description}}</div>
             </div>
             <div class="time_and_more">
                 <span class="start_time">Starts at
@@ -32,12 +34,19 @@
 {{/each}}
 
 <script type="text/javascript">
-
+    function truncateString(str, num) {
+        if (str.length <= num) {
+            return str
+        }
+        return str.slice(0, num) + ' ...'
+    }
+    let filmSummary = document.querySelector('.filmSummary')
+    let test = truncateString(filmSummary.innerHTML, 360)
+    filmSummary.innerHTML = test
     let category = document.querySelectorAll('.filmGenre')
     let img = document.querySelectorAll('.card-image')
     let catArr = []
     let imgArr = []
-
     for (let i = 0; i < category.length; i++) {
         catArr.push(category[i].innerHTML)
     }

@@ -25,7 +25,11 @@ const Film = new Schema({
     fLink: String,
     show: {
         type: String,
-    }
+    },
+    event:{
+        type: Boolean,
+        default: false,
+    },
 });
 
 module.exports = model('Film', Film)

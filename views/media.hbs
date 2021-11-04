@@ -1,4 +1,4 @@
-<h1>Welcome</h1>
+<h1>Media</h1>
 {{#each media}}
     <a data-target="modal1" class="modal-trigger"><img src="http://localhost:3000/uploads/{{img}}" height="180" width="250"></a>
     <div id="modal1" class="modal">
@@ -14,7 +14,25 @@
             </form>
         </div>
     </div>
+    {{#each imgGal}}
+    <a data-target="modal1" class="modal-trigger"><img src="http://localhost:3000/uploads/{{this}}" height="180" width="250"></a>
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>{{this}}</h4>
+            <img src="http://localhost:3000/uploads/{{this}}" style="max-width: 1200px; max-height: 720px;">
+
+        </div>
+        <div class="modal-footer">
+            <form action="/admin/elem/{{img}}/{{_id}}" method="POST">
+                <input type="hidden" name="_csrf" value="{{@root.tkn}}">
+                <button class="btn red">Delete</button>
+            </form>
+        </div>
+    </div>
 {{/each}}
+{{/each}}
+
+
 
 <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function () {

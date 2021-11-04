@@ -816,7 +816,7 @@ iframe {
     .container--content {
         margin: 5%;
     }
-    .Film .Film_summary {
+    .Film .filmSummary {
         display: none;
     }
     .card-image-red {
@@ -1234,18 +1234,18 @@ hr.devider {
 .Film .Film_title:hover {
     text-decoration: none;
 }
-.Film .Film_summary {
+.Film .filmSummary {
     font-family: Hind;
     font-weight: 400;
     font-size: 14px;
 }
 @media screen and (min-width: 320px) {
-    .Film .Film_summary {
+    .Film .filmSummary {
         font-size: calc(14px + 4 * (100vw - 320px) / 880);
     }
 }
 @media screen and (min-width: 1200px) {
-    .Film .Film_summary {
+    .Film .filmSummary {
         font-size: 18px;
     }
 }

@@ -28,10 +28,12 @@
                         <span>
                             {{film.country}}
                             |</span>
+                    {{#unless film.event}}
                         <span>
                             {{film.duration}}
                             min |</span>
                         <span>
+                    {{/unless}}        
                             {{film.languages}}
                         </span>
                     </div>
@@ -46,14 +48,16 @@
                 <br>
                 <br>
                 <div class="filmGalRow">
+                    {{#unless film.event}}
                     <h2 class="FilmSectionTitle">Film Stills</h2>
-                        {{#each film.imgGal}}
-                        
-                            <div class="filmGalColumn">
-                               <img class="materialboxed" width="250" src="//localhost:3000/uploads/{{this}}">
-                            </div>
-                        {{/each}}
+                    {{/unless}}
+                    {{#each film.imgGal}}
+
+                        <div class="filmGalColumn">
+                            <img class="materialboxed" width="250" src="//localhost:3000/uploads/{{this}}">
                         </div>
+                    {{/each}}
+                </div>
                 <div class="col-xs-12 col-lg-3 col-lg-offset-1 FilmUrls">
                     <div id="filmPlayer" visible="{{film.show}}">
                         <iframe
@@ -68,45 +72,49 @@
                             id="filmPlug"
                             style="background-image:url('//localhost:3000/uploads/{{film.img}}')">
                             <span class="plugMask">
-                                <span class="plugText">
-                                    Film will be available on
-                                    {{film.screeningTime}}
-                                    on
-                                    {{film.date}}</span>
+                                {{#unless film.event}}
+                                    <span class="plugText">
+                                        Film will be available on
+                                        {{film.screeningTime}}
+                                        on
+                                        {{film.date}}</span>
+                                {{/unless}}
                             </span>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 col-lg-8">
-                        <div>
-                            <hr class="divider">
-                            <h2 class="FilmSectionTitle">CAST &amp; CREDITS</h2>
-                            <br>
-                            <br>
-                            <div class="filmSectionBlocks">
-                                <div class="filmSectionBlock">
-                                    <div class="filmSectionSubtitle">Director</div>
-                                    <div class="filmSectionContent">{{film.director}}</div>
-                                </div>
-                                <div class="filmSectionBlock">
-                                    <div class="filmSectionSubtitle">Producer</div>
-                                    <div class="filmSectionContent">{{film.producer}}</div>
-                                </div>
-                                <div class="filmSectionBlock">
-                                    <div class="filmSectionSubtitle">Editor</div>
-                                    <div class="filmSectionContent">{{film.editor}}</div>
-                                </div>
-                                <div class="filmSectionBlock">
-                                    <div class="filmSectionSubtitle">Executive Producer</div>
-                                    <div class="filmSectionContent">{{film.exProducer}}</div>
-                                </div>
-                                <div class="filmSectionBlock">
-                                    <div class="filmSectionSubtitle">Cast</div>
-                                    <div class="filmSectionContent">{{film.cast}}</div>
+                    {{#unless film.event}}
+                        <div class="col-xs-12 col-lg-8">
+                            <div>
+                                <hr class="divider">
+                                <h2 class="FilmSectionTitle">CAST &amp; CREDITS</h2>
+                                <br>
+                                <br>
+                                <div class="filmSectionBlocks">
+                                    <div class="filmSectionBlock">
+                                        <div class="filmSectionSubtitle">Director</div>
+                                        <div class="filmSectionContent">{{film.director}}</div>
+                                    </div>
+                                    <div class="filmSectionBlock">
+                                        <div class="filmSectionSubtitle">Producer</div>
+                                        <div class="filmSectionContent">{{film.producer}}</div>
+                                    </div>
+                                    <div class="filmSectionBlock">
+                                        <div class="filmSectionSubtitle">Editor</div>
+                                        <div class="filmSectionContent">{{film.editor}}</div>
+                                    </div>
+                                    <div class="filmSectionBlock">
+                                        <div class="filmSectionSubtitle">Executive Producer</div>
+                                        <div class="filmSectionContent">{{film.exProducer}}</div>
+                                    </div>
+                                    <div class="filmSectionBlock">
+                                        <div class="filmSectionSubtitle">Cast</div>
+                                        <div class="filmSectionContent">{{film.cast}}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        {{/unless}}
                     </div>
                 </div>
             </div>

@@ -9,13 +9,21 @@ const letin = require('../middlewares/letin')
 router.get('/', letin, (req, res) => {
     res.render('addfilm', {
         layout: 'admin.hbs',
-        title: 'Add Film',
+        title: 'Add Film or Event',
         ishome: true
     });
 });
 
 router.post('/', letin, imgMidle.upload.fields([{name: 'img', maxCount: 1}, {name: 'imgGal', maxCount: 5}]), async (req, res) => {
     try {    
+        
+        const isEvent = () => {
+            if (req.body.event){
+                return true
+            }else{
+                return false
+            }
+        }
          if (req.files.img && req.files.imgGal) {
             const filename = req.files.img.map(function(file) {
                 return file.filename
@@ -24,30 +32,16 @@ router.post('/', letin, imgMidle.upload.fields([{name: 'img', maxCount: 1}, {nam
                   return file.filename
                  })
             const film = Film({
+                 ...req.body,
                  id: uuidv4(),
-                 title: req.body.title,
-                 category: req.body.category,
-                 country: req.body.country,
-                 languages: req.body.lang,
-                 duration: req.body.duration,
-                 date: req.body.date,
-                 screeningTime: req.body.screeningTime,
+                 event: isEvent(),
                  img: filename.toString(),
                  imgGal: filenames,
-                 description: req.body.description,
-                 director: req.body.director,
-                 producer: req.body.producer,
-                 editor: req.body.editor,
-                 exProducer: req.body.exProducer,
-                 editor: req.body.editor,
-                 cast: req.body.cast,
-                 fLink: req.body.fLink,
-                 show: req.body.show,
                  userId: req.userId
              })
              const media = Media({
-                 img: filenames,
-                 img: filename,
+                img: filename.toString(),
+                imgGal: filenames
              })
              await film.save(console.log("Added"))
              await media.save(console.log("Added"))
@@ -57,25 +51,11 @@ router.post('/', letin, imgMidle.upload.fields([{name: 'img', maxCount: 1}, {nam
                 return file.filename
                })
             const film = Film({
+                 ... req.body,
                  id: uuidv4(),
-                 title: req.body.title,
-                 category: req.body.category,
-                 country: req.body.country,
-                 languages: req.body.lang,
-                 duration: req.body.duration,
-                 date: req.body.date,
-                 screeningTime: req.body.screeningTime,
+                 event: isEvent(),
                  img: filename.toString(),
                  imgGal: null,
-                 description: req.body.description,
-                 director: req.body.director,
-                 producer: req.body.producer,
-                 editor: req.body.editor,
-                 exProducer: req.body.exProducer,
-                 editor: req.body.editor,
-                 cast: req.body.cast,
-                 fLink: req.body.fLink,
-                 show: req.body.show,
                  userId: req.userId
              })
              const media = Media({
@@ -89,57 +69,28 @@ router.post('/', letin, imgMidle.upload.fields([{name: 'img', maxCount: 1}, {nam
                 return file.filename
                })
             const film = Film({
+                 ...req.body,
                  id: uuidv4(),
-                 title: req.body.title,
-                 category: req.body.category,
-                 country: req.body.country,
-                 languages: req.body.lang,
-                 duration: req.body.duration,
-                 date: req.body.date,
-                 screeningTime: req.body.screeningTime,
                  img: null,
                  imgGal: filenames,
-                 description: req.body.description,
-                 director: req.body.director,
-                 producer: req.body.producer,
-                 editor: req.body.editor,
-                 exProducer: req.body.exProducer,
-                 editor: req.body.editor,
-                 cast: req.body.cast,
-                 fLink: req.body.fLink,
-                 show: req.body.show,
+                 event: isEvent(),
                  userId: req.userId
              })
              const media = Media({
-                img: filenames,
+                imgGal: filenames,
             })
              await film.save(console.log("Added"))
              await media.save(console.log("Added"))
              res.redirect('addfilm')
          }else{
              const film = Film({
+                 ... req.body,
                  id: uuidv4(),
-                 title: req.body.title,
-                 category: req.body.category,
-                 country: req.body.country,
-                 languages: req.body.lang,
-                 duration: req.body.duration,
-                 date: req.body.date,
-                 screeningTime: req.body.screeningTime,
                  img: null,
                  imgGal: null,
-                 description: req.body.description,
-                 director: req.body.director,
-                 producer: req.body.producer,
-                 editor: req.body.editor,
-                 exProducer: req.body.exProducer,
-                 editor: req.body.editor,
-                 cast: req.body.cast,
-                 fLink: req.body.fLink,
-                 show: req.body.show,
+                 event: isEvent(),
                  userId: req.userId
              })
-            
             await film.save(console.log("Added without Photo"))
             res.redirect('addfilm')
         }
