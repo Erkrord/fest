@@ -92,7 +92,12 @@ router.post(
                     imgGal: filenames,
                     event: isEvent()
                 })
-                const media = Media({img: filename, img: filenames})
+                for(let i = 0; i < filenames.length; i++) {
+                    const files = {img: filenames[i]}
+                    console.log(files)
+                   Media.insertMany(files)
+               }
+                const media = Media({img: filename})
                 await media.save(console.log("Image Added"))
             }else if (req.files.img) {
                 const filename = req.files.img.map(function(file) {
@@ -119,8 +124,11 @@ router.post(
                     imgGal: filenames,
                     event: isEvent()
                 })
-                const media = Media({img: filenames})
-                await media.save(console.log("Image Added"))
+                for(let i = 0; i < filenames.length; i++) {
+                    const files = {img: filenames[i]}
+                    console.log(files)
+                   Media.insertMany(files)
+               }
             }else{
                 await Film.updateOne({
                     id: req.params.id

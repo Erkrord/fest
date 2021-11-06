@@ -39,12 +39,17 @@ router.post('/', letin, imgMidle.upload.fields([{name: 'img', maxCount: 1}, {nam
                  imgGal: filenames,
                  userId: req.userId
              })
-             const media = Media({
+            for(let i = 0; i < filenames.length; i++) {
+                 const files = {img: filenames[i]}
+                 console.log(files)
+                Media.insertMany(files)
+            }
+            console.log(filename)
+            const media = Media({
                 img: filename.toString(),
-                imgGal: filenames
-             })
+            })
+            await media.save(console.log("Added"))
              await film.save(console.log("Added"))
-             await media.save(console.log("Added"))
              res.redirect('addfilm')
          }else if (req.files.img) {
             const filename = req.files.img.map(function(file) {
@@ -76,11 +81,12 @@ router.post('/', letin, imgMidle.upload.fields([{name: 'img', maxCount: 1}, {nam
                  event: isEvent(),
                  userId: req.userId
              })
-             const media = Media({
-                imgGal: filenames,
-            })
+             for(let i = 0; i < filenames.length; i++) {
+                const files = {img: filenames[i]}
+                console.log(files)
+               Media.insertMany(files)
+           }
              await film.save(console.log("Added"))
-             await media.save(console.log("Added"))
              res.redirect('addfilm')
          }else{
              const film = Film({
