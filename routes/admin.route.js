@@ -110,7 +110,7 @@ router.post(
                     img: filename.toString(),
                     event: isEvent()
                 })
-                const media = Media({img: filename})
+                const media = Media({img: filename.toString()})
                 await media.save(console.log("Image Added"))
             }else if(req.files.imgGal){
                 const filenames = req.files.imgGal.map(function(file) {

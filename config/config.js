@@ -13,7 +13,32 @@ const authMidle = require('../middlewares/auth')
 const MONGODB_URI = process.env.DB_HOST
 const salt = process.env.SALT
 const slug = require('mongoose-slug-generator')
+const HandlebarsI18n = require("handlebars-i18n");
+HandlebarsI18n.init();
 mongoose.plugin(slug)
+
+
+const i18next = require('i18next');
+
+i18next.init({
+	resources : {
+        "en" : {
+            translation : {
+                "phrase1": "What is good?",
+                "phrase2": "{{what}} is good."
+            }
+        },
+        "de" : {
+            translation: {
+                "phrase1": "Was ist gut?",
+                "phrase2": "{{what}} ist gut."
+           }
+        }
+    },
+    lng : "en"
+});
+
+
 
 const store = new MongoDBStore(
     {collection: 'session', uri: MONGODB_URI, databaseName: 'sieff'}
