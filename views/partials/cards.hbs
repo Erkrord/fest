@@ -1,3 +1,5 @@
+
+{{#if (localeIs "en")}}
 {{#each film}}
     <div class="Film">
         <a
@@ -14,12 +16,12 @@
                         </div>
                     {{/unless}}
                 </div>
-                <div class="filmGenre">{{category}}</div>
+                <div class="filmGenre" category="{{category.en}}">{{category.en}}</div>
                 <div class="clearfix"></div>
                 <h4 class="heading-4">
-                    <a class="Film_title" href="/film/{{slug}}">{{title}}</a>
+                    <a class="Film_title" href="/film/{{slug}}">{{title.en}}</a>
                 </h4>
-                <div class="filmSummary">{{description}}</div>
+                <div class="filmSummary">{{description.en}}</div>
             </div>
             <div class="time_and_more">
                 <span class="start_time">Starts at
@@ -32,7 +34,44 @@
     </div>
 
 {{/each}}
+{{/if}}
+{{#if (localeIs "hy")}}
 
+{{#each film}}
+    <div class="Film">
+        <a
+            class="Film_img-container card-image"
+            style="background-image: url('//localhost:3000/uploads/{{img}}');"
+            href="/film/{{slug}}"></a>
+        <div class="Film_content">
+            <div>
+                <div class="pull-right">
+                    {{#unless event}}
+                        <div class="Film_runtime pull-right">Տևողություն:
+                            {{duration}}
+                            րոպե
+                        </div>
+                    {{/unless}}
+                </div>
+                <div class="filmGenre" category="{{category.en}}">{{category.hy}}</div>
+                <div class="clearfix"></div>
+                <h4 class="heading-4">
+                    <a class="Film_title" href="/film/{{slug}}">{{title.hy}}</a>
+                </h4>
+                <div class="filmSummary">{{description.hy}}</div>
+            </div>
+            <div class="time_and_more">
+                <span class="start_time">Սկիզբ՝
+                    {{screeningTime}}
+                    
+                    {{date}}</span>
+                <a class="Film_more" href="/film/{{slug}}">Ավելին</a>
+            </div>
+        </div>
+    </div>
+
+{{/each}}
+{{/if}}
 <script type="text/javascript">
     function truncateString(str, num) {
         if (str.length <= num) {
@@ -40,15 +79,17 @@
         }
         return str.slice(0, num) + ' ...'
     }
-    let filmSummary = document.querySelector('.filmSummary')
-    let test = truncateString(filmSummary.innerHTML, 360)
-    filmSummary.innerHTML = test
+    let filmSummary = document.querySelectorAll('.filmSummary')
+    for (let i = 0; i < filmSummary.length; i++) {
+        let test = truncateString(filmSummary[i].innerHTML, 360)
+        filmSummary[i].innerHTML = test
+    }
     let category = document.querySelectorAll('.filmGenre')
     let img = document.querySelectorAll('.card-image')
     let catArr = []
     let imgArr = []
     for (let i = 0; i < category.length; i++) {
-        catArr.push(category[i].innerHTML)
+        catArr.push(category[i].getAttribute('category'))
     }
     for (let i = 0; i < img.length; i++) {
         imgArr.push(img[i])
@@ -65,7 +106,7 @@
                     .classList
                     .add('card-image-blue')
                 break;
-            case 'Youth and Children Films':
+            case 'Educational Films':
                 imgArr[i]
                     .classList
                     .add('card-image-orange')
@@ -75,7 +116,7 @@
                     .classList
                     .add('card-image-red')
                 break;
-            case 'Non-Competition Films':
+            case 'Informational Film Program':
                 imgArr[i]
                     .classList
                     .add('card-image-black')

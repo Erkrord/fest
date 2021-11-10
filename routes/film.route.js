@@ -15,6 +15,7 @@ router.get('/:slug', async (req, res) => {
             partner,
             subscribed: req.flash('subscribed')
         });
+        console.log(film.title);
     }
     else{
         res.render('404', {

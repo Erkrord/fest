@@ -2,8 +2,9 @@ const express = require('express');
 const Film = require('../models/film.model')
 const Partner = require('../models/partner.model')
 const Subscribe = require('../models/subscribe.model')
+const i18next = require('i18next');
+const mongoose = require('mongoose');
 const router = express.Router();
-
 router.get('/', async (req, res) => {
     const film = await Film
         .find()
@@ -22,7 +23,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const film = await Film
-        .find({category: req.body.category})
+        .find({'category.en':req.body.category})
         .lean()
     const result = {
         title: "Main",
@@ -47,5 +48,14 @@ router.post('/sbs', async (req, res) => {
     }
 })
 
+
+router.post('/loc', async (req, res) => {
+    try{
+        const language = req.body.lng
+        i18next.init({lng: language})
+        mongoose.setDefaultLanguage(req.body.lng)
+        res.redirect('back')
+    }catch(err){console.log(err)}
+})
 
 module.exports = router;

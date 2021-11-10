@@ -1,197 +1,358 @@
 <noscript>You need to enable JavaScript to run this app.</noscript>
-<div class="filmHeader">
-    <div
-        class="img-block center-block"
-        style="background-image:url('//localhost:3000/uploads/{{film.img}}')"></div>
+{{#if (localeIs "en")}}
+    <div class="filmHeader">
+        <div
+            class="img-block center-block"
+            style="background-image:url('//localhost:3000/uploads/{{film.img}}')"></div>
 
-    <div class="filmHeader__content">
-        <div class="container">
-            <div class="row">
-                <div class="hidden-xs hidden-sm col-md-9">
-                    <div class="PageBreadcrumbs">
-                        <a href="/schedule">Schedule</a>
-                        »
-                        <a href="/">Browse</a>
-                        »
-                        {{film.title}}</div>
+        <div class="filmHeader__content">
+            <div class="container">
+                <div class="row">
+                    <div class="hidden-xs hidden-sm col-md-9">
+                        <div class="PageBreadcrumbs">
+                            <a href="/schedule">Schedule</a>
+                            »
+                            <a href="/">Browse</a>
+                            »
+                            {{film.title}}</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="bg-wrapper bg-festival">
-    <div id="film-container" class="container-fluid bg-white film-container">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-lg-8">
-                    <div class="filmSubtitle">
-                        <span>
-                            {{film.country}}
-                            |</span>
-                    {{#unless film.event}}
-                        <span>
-                            {{film.duration}}
-                            min |</span>
-                        <span>
-                    {{/unless}}        
-                            {{film.languages}}
-                        </span>
-                    </div>
-                    <h1 class="heading-1 filmTitle">{{film.title}}</h1>
-                    <div id="filmGenres" class="filmGeners">
-                        <span>{{film.category}}</span>
-                    </div>
-                    <br>
-                    <br>
-                    <div class="filmSynopsis">{{film.description}}</div>
-                </div>
-                <br>
-                <br>
-                <div class="filmGalRow">
-                    {{#unless film.event}}
-                    <h2 class="FilmSectionTitle">Film Stills</h2>
-                    {{/unless}}
-                    {{#if film.imgGal}}
-                    {{#each film.imgGal}}
-                             <div class="filmGalColumn">
-                            <img class="materialboxed" width="250" src="//localhost:3000/uploads/{{this}}">
-                        </div>
-                    {{/each}}
-                    {{/if}}
-                </div>
-                <div class="col-xs-12 col-lg-3 col-lg-offset-1 FilmUrls">
-                    <div id="filmPlayer" visible="{{film.show}}">
-                        <iframe
-                            src="https://player.vimeo.com/video/{{film.fLink}}?h=60d415c063"
-                            id="film"
-                            width="640"
-                            height="360"
-                            frameborder="0"
-                            allow="autoplay; fullscreen; picture-in-picture"
-                            allowfullscreen="allowfullscreen"></iframe>
-                        <div
-                            id="filmPlug"
-                            style="background-image:url('//localhost:3000/uploads/{{film.img}}')">
-                            <span class="plugMask">
-                                {{#unless film.event}}
-                                    <span class="plugText">
-                                        Film will be available on
-                                        {{film.screeningTime}}
-                                        on
-                                        {{film.date}}</span>
+    <div class="bg-wrapper bg-festival">
+        <div id="film-container" class="container-fluid bg-white film-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-8">
+                        <div class="filmSubtitle">
+                            <span>
+                                {{film.country}}
+                                |</span>
+                            {{#unless film.event}}
+                                <span>
+                                    {{film.duration}}
+                                    min |</span>
+                                <span>
                                 {{/unless}}
+                                {{film.languages}}
                             </span>
                         </div>
+                        <h1 class="heading-1 filmTitle">{{film.title}}</h1>
+                        <div id="filmGenres" class="filmGeners" category="{{film.category}}">
+                            <span>{{film.category}}</span>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="filmSynopsis">{{film.description}}</div>
                     </div>
-                </div>
-                <div class="row">
-                    {{#unless film.event}}
-                        <div class="col-xs-12 col-lg-8">
-                            <div>
-                                <hr class="divider">
-                                <h2 class="FilmSectionTitle">CAST &amp; CREDITS</h2>
-                                <br>
-                                <br>
-                                <div class="filmSectionBlocks">
-                                    <div class="filmSectionBlock">
-                                        <div class="filmSectionSubtitle">Director</div>
-                                        <div class="filmSectionContent">{{film.director}}</div>
-                                    </div>
-                                    <div class="filmSectionBlock">
-                                        <div class="filmSectionSubtitle">Producer</div>
-                                        <div class="filmSectionContent">{{film.producer}}</div>
-                                    </div>
-                                    <div class="filmSectionBlock">
-                                        <div class="filmSectionSubtitle">Editor</div>
-                                        <div class="filmSectionContent">{{film.editor}}</div>
-                                    </div>
-                                    <div class="filmSectionBlock">
-                                        <div class="filmSectionSubtitle">Executive Producer</div>
-                                        <div class="filmSectionContent">{{film.exProducer}}</div>
-                                    </div>
-                                    <div class="filmSectionBlock">
-                                        <div class="filmSectionSubtitle">Cast</div>
-                                        <div class="filmSectionContent">{{film.cast}}</div>
+                    <br>
+                    <br>
+                    <div class="filmGalRow">
+                        {{#unless film.event}}
+                            <h2 class="FilmSectionTitle">Film Stills</h2>
+                        {{/unless}}
+                        {{#if film.imgGal}}
+                            {{#each film.imgGal}}
+                                <div class="filmGalColumn">
+                                    <img class="materialboxed" width="250" src="//localhost:3000/uploads/{{this}}">
+                                </div>
+                            {{/each}}
+                        {{/if}}
+                    </div>
+                    <div class="col-xs-12 col-lg-3 col-lg-offset-1 FilmUrls">
+                        <div id="filmPlayer" visible="{{film.show}}">
+                            <iframe
+                                src="https://player.vimeo.com/video/{{film.fLink}}?h=60d415c063"
+                                id="film"
+                                width="640"
+                                height="360"
+                                frameborder="0"
+                                allow="autoplay; fullscreen; picture-in-picture"
+                                allowfullscreen="allowfullscreen"></iframe>
+                            <div
+                                id="filmPlug"
+                                style="background-image:url('//localhost:3000/uploads/{{film.img}}')">
+                                <span class="plugMask">
+                                    {{#unless film.event}}
+                                        <span class="plugText">
+                                            Film will be available on
+                                            {{film.screeningTime}}
+                                            on
+                                            {{film.date}}</span>
+                                    {{/unless}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {{#unless film.event}}
+                            <div class="col-xs-12 col-lg-8">
+                                <div>
+                                    <hr class="divider">
+                                    <h2 class="FilmSectionTitle">CAST &amp; CREDITS</h2>
+                                    <br>
+                                    <br>
+                                    <div class="filmSectionBlocks">
+                                        <div class="filmSectionBlock">
+                                            <div class="filmSectionSubtitle">Director</div>
+                                            <div class="filmSectionContent">{{film.director}}</div>
+                                        </div>
+                                        <div class="filmSectionBlock">
+                                            <div class="filmSectionSubtitle">Producer</div>
+                                            <div class="filmSectionContent">{{film.producer}}</div>
+                                        </div>
+                                        <div class="filmSectionBlock">
+                                            <div class="filmSectionSubtitle">Editor</div>
+                                            <div class="filmSectionContent">{{film.editor}}</div>
+                                        </div>
+                                        <div class="filmSectionBlock">
+                                            <div class="filmSectionSubtitle">Executive Producer</div>
+                                            <div class="filmSectionContent">{{film.exProducer}}</div>
+                                        </div>
+                                        <div class="filmSectionBlock">
+                                            <div class="filmSectionSubtitle">Cast</div>
+                                            <div class="filmSectionContent">{{film.cast}}</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        {{/unless}}
+                            {{/unless}}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div>
-</div>
+{{/if}}
+{{#if (localeIs "hy")}}
+    <div class="filmHeader">
+        <div
+            class="img-block center-block"
+            style="background-image:url('//localhost:3000/uploads/{{film.img}}')"></div>
+
+        <div class="filmHeader__content">
+            <div class="container">
+                <div class="row">
+                    <div class="hidden-xs hidden-sm col-md-9">
+                        <div class="PageBreadcrumbs">
+                            <a href="/schedule">Ժամանակացույց</a>
+                            »
+                            <a href="/">Գլխավոր</a>
+                            »
+                            {{film.title}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-wrapper bg-festival">
+        <div id="film-container" class="container-fluid bg-white film-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-8">
+                        <div class="filmSubtitle">
+                            <span>
+                                {{film.country}}
+                                |</span>
+                            {{#unless film.event}}
+                                <span>
+                                    {{film.duration}}
+                                    րոպե |</span>
+                                <span>
+                                {{/unless}}
+                                {{film.languages}}
+                            </span>
+                        </div>
+                        <h1 class="heading-1 filmTitle">{{film.title}}</h1>
+                        <div id="filmGenres" class="filmGeners" category="{{film.category}}">
+                            <span>{{film.category}}</span>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="filmSynopsis">{{film.description}}</div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="filmGalRow">
+                        {{#unless film.event}}
+                            <h2 class="FilmSectionTitle">Պատկերներ</h2>
+                        {{/unless}}
+                        {{#if film.imgGal}}
+                            {{#each film.imgGal}}
+                                <div class="filmGalColumn">
+                                    <img class="materialboxed" width="250" src="//localhost:3000/uploads/{{this}}">
+                                </div>
+                            {{/each}}
+                        {{/if}}
+                    </div>
+                    <div class="col-xs-12 col-lg-3 col-lg-offset-1 FilmUrls">
+                        <div id="filmPlayer" visible="{{film.show}}">
+                            <iframe
+                                src="https://player.vimeo.com/video/{{film.fLink}}?h=60d415c063"
+                                id="film"
+                                width="640"
+                                height="360"
+                                frameborder="0"
+                                allow="autoplay; fullscreen; picture-in-picture"
+                                allowfullscreen="allowfullscreen"></iframe>
+                            <div
+                                id="filmPlug"
+                                style="background-image:url('//localhost:3000/uploads/{{film.img}}')">
+                                <span class="plugMask">
+                                    {{#unless film.event}}
+                                        <span class="plugText">
+                                            Ֆիլմը հասանելի կլինի՝ 
+                                            {{film.screeningTime}}
+                                            
+                                            {{film.date}}</span>
+                                    {{/unless}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {{#unless film.event}}
+                            <div class="col-xs-12 col-lg-8">
+                                <div>
+                                    <hr class="divider">
+                                    <h2 class="FilmSectionTitle">ՍՏԵՂԾԱԳՈՐԾԱԿԱՆ ԿԱԶՄԸ</h2>
+                                    <br>
+                                    <br>
+                                    <div class="filmSectionBlocks">
+                                        <div class="filmSectionBlock">
+                                            <div class="filmSectionSubtitle">Ռեժիսոր</div>
+                                            <div class="filmSectionContent">{{film.director}}</div>
+                                        </div>
+                                        <div class="filmSectionBlock">
+                                            <div class="filmSectionSubtitle">Պրոդյուսեր</div>
+                                            <div class="filmSectionContent">{{film.producer}}</div>
+                                        </div>
+                                        <div class="filmSectionBlock">
+                                            <div class="filmSectionSubtitle">Խմբագիր</div>
+                                            <div class="filmSectionContent">{{film.editor}}</div>
+                                        </div>
+                                        <div class="filmSectionBlock">
+                                            <div class="filmSectionSubtitle">Կատարող Պրոդյուսեր</div>
+                                            <div class="filmSectionContent">{{film.exProducer}}</div>
+                                        </div>
+                                        <div class="filmSectionBlock">
+                                            <div class="filmSectionSubtitle">Նկարահանվել են՝</div>
+                                            <div class="filmSectionContent">{{film.cast}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/unless}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/if}}
+
 {{> partners}}
 {{> subscribe}}
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function () {
-var galModal = document.querySelectorAll('.materialboxed');
-var instances = M
-    .Materialbox
-    .init(galModal);
-})
-let category = document
-.getElementById('filmGenres')
-.innerHTML
-.trimEnd()
-.trimStart()
-.replace(/<[^>]*>/g, '')
-let topBorder = document.getElementById('film-container')
+    document.addEventListener('DOMContentLoaded', function () {
+        var galModal = document.querySelectorAll('.materialboxed');
+        var instances = M
+            .Materialbox
+            .init(galModal);
+    })
+    let category = document
+        .getElementById('filmGenres')
+        .getAttribute('category')
+        .trimEnd()
+        .trimStart()
+        .replace(/<[^>]*>/g, '')
+    let topBorder = document.getElementById('film-container')
+    console.log(category)
+    switch (category) {
+        case 'Wildlife Conservation Films':
+            topBorder
+                .classList
+                .add('film-border-green')
+            break;
+        case 'Environmental Films':
+            topBorder
+                .classList
+                .add('film-border-blue')
+            break;
+        case 'Educational Films':
+            topBorder
+                .classList
+                .add('film-border-orange')
+            break;
+        case 'Wildfire Prevention Films':
+            topBorder
+                .classList
+                .add('film-border-red')
+            break;
+        case 'Informational Film Program':
+            topBorder
+                .classList
+                .add('film-border-black')
+            break;
+        case 'Events':
+            topBorder
+                .classList
+                .add('film-border-yellow')
+            break;
+        case 'Journalistic Competition':
+            topBorder
+                .classList
+                .add('film-border-brown')
+            break;
+        default:
+            topBorder
+                .classList
+                .add('film-border-green')
+            break;
+        case 'Վայրի բնության պահպանություն':
+            topBorder
+                .classList
+                .add('film-border-green')
+            break;
+        case 'Բնապահպանական Խնդիրներ':
+            topBorder
+                .classList
+                .add('film-border-blue')
+            break;
+        case 'Կրթական':
+            topBorder
+                .classList
+                .add('film-border-orange')
+            break;
+        case 'Անտառային հրդեհներ':
+            topBorder
+                .classList
+                .add('film-border-red')
+            break;
+        case 'Տեղեկատվական ծրագիր':
+            topBorder
+                .classList
+                .add('film-border-black')
+            break;
+        case 'Միջոցառումներ':
+            topBorder
+                .classList
+                .add('film-border-yellow')
+            break;
+        case 'Լրագրողական հետաքննություն':
+            topBorder
+                .classList
+                .add('film-border-brown')
+            break;
 
-switch (category) {
-case 'Wildlife Conservation Films':
-    topBorder
-        .classList
-        .add('film-border-green')
-    break;
-case 'Environmental Films':
-    topBorder
-        .classList
-        .add('film-border-blue')
-    break;
-case 'Youth and Children Films':
-    topBorder
-        .classList
-        .add('film-border-orange')
-    break;
-case 'Wildfire Prevention Films':
-    topBorder
-        .classList
-        .add('film-border-red')
-    break;
-case 'Non-Competition Films':
-    topBorder
-        .classList
-        .add('film-border-black')
-    break;
-case 'Events':
-    topBorder
-        .classList
-        .add('film-border-yellow')
-    break;
-case 'Journalistic Competition':
-    topBorder
-        .classList
-        .add('film-border-brown')
-    break;
-default:
-    topBorder
-        .classList
-        .add('film-border-green')
-    break;
-
-}
-const filmPlayer = document
-.getElementById('filmPlayer')
-.getAttribute('visible')
-const film = document.getElementById('film')
-const filmPlug = document.getElementById('filmPlug')
-if (filmPlayer === 'show') {
-filmPlug.remove()
-} else {
-film.remove()
-}
+    }
+    const filmPlayer = document
+        .getElementById('filmPlayer')
+        .getAttribute('visible')
+    const film = document.getElementById('film')
+    const filmPlug = document.getElementById('filmPlug')
+    if (filmPlayer === 'show') {
+        filmPlug.remove()
+    } else {
+        film.remove()
+    }
 </script>

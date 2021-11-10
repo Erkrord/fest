@@ -10,197 +10,300 @@
                 <div class="input-field col s6">
                     <input type="hidden" name="id" value="{{id}}">
                         <input
-                            placeholder="Type Film Name"
+                            placeholder="Type Film Name In English"
                             name="title"
                             id="film_name"
                             type="text"
                             class="validate"
-                            required>
-                            <label for="first_name">Film Name</label>
-                        </div>
-
-                        <div class="input-field col s6">
-                            <select id="category" name="category" class="validate">
-                                <option value="" disabled="disabled" selected="selected">Choose your option</option>
-                                <option value="Wildlife Conservation Films">Wildlife Conservation Films</option>
-                                <option value="Environmental Films">Environmental Films</option>
-                                <option value="Youth and Children Films">Youth and Children Films</option>
-                                <option value="Wildfire Prevention Films">Wildfire Prevention Films</option>
-                                <option value="Non-Competition Films">Non-Competition Films</option>
-                                <option value="Events">Events</option>
-                                <option value="Journalistic Competition">Journalistic Competition</option>
-                            </select>
-                            <label>Select Category</label>
+                            required="required">
+                            <label for="film_name_hy">Film Name In English</label>
                         </div>
                         <div class="input-field col s6">
                             <input
-                                placeholder="Type Film Duration in minutes"
-                                id="duration"
-                                name="duration"
-                                type="number"
-                                class="validate">
-                                <label for="duration">Film Duration (in minutes)</label>
+                                placeholder="Type Film Name In Armenian"
+                                name="title_hy"
+                                id="film_name_hy"
+                                type="text"
+                                class="validate"
+                                required="required">
+                                <label for="film_name_hy">Film Name In Armenian</label>
+                            </div>
+
+                            <div class="input-field col s6">
+                                <select id="category" name="category" class="validate">
+                                    <option value="" disabled="disabled" selected="selected">Choose Category In English</option>
+                                    <option value="Wildlife Conservation Films">Wildlife Conservation Films</option>
+                                    <option value="Environmental Films">Environmental Films</option>
+                                    <option value="Educational Films">Educational Films</option>
+                                    <option value="Wildfire Prevention Films">Wildfire Prevention Films</option>
+                                    <option value="Informational Film Program">Informational Film Program</option>
+                                    <option value="Events">Events</option>
+                                    <option value="Journalistic Competition">Journalistic Competition</option>
+                                </select>
+                                <label for="category">Select Category In English</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <select id="category_hy" name="category_hy" class="validate">
+                                    <option value="" disabled="disabled" selected="selected">Choose Category In Armenian</option>
+                                    <option value="Վայրի բնության պահպանություն">Վայրի բնության պահպանություն</option>
+                                    <option value="Բնապահպանական Խնդիրներ">Բնապահպանական Խնդիրներ</option>
+                                    <option value="Կրթական">Կրթական</option>
+                                    <option value="Անտառային հրդեհներ">Անտառային հրդեհներ</option>
+                                    <option value="Տեղեկատվական ծրագիր">Տեղեկատվական ծրագիր</option>
+                                    <option value="Միջոցառումներ">Միջոցառումներ</option>
+                                    <option value="Լրագրողական հետաքննություն">Լրագրողական հետաքննություն</option>
+                                </select>
+                                <label for="category_hy">Select Category In Armenian</label>
                             </div>
                             <div class="input-field col s6">
                                 <input
-                                    placeholder="Screening Date"
-                                    id="screening_date"
-                                    name="date"
-                                    type="text"
-                                    class="datepicker">
-                                    <label for="film_category">Screening Date</label>
+                                    placeholder="Type Film Duration in minutes"
+                                    id="duration"
+                                    name="duration"
+                                    type="number"
+                                    class="validate">
+                                    <label for="duration">Film Duration (in minutes)</label>
                                 </div>
                                 <div class="input-field col s6">
                                     <input
-                                        placeholder="Screening Time"
-                                        id="screeningTime"
-                                        name="screeningTime"
+                                        placeholder="Screening Date"
+                                        id="screening_date"
+                                        name="date"
                                         type="text"
-                                        class="timepicker"
-                                        step="1">
-                                        <label for="film_category">Screening Time</label>
+                                        class="datepicker">
+                                        <label for="film_category">Screening Date</label>
                                     </div>
                                     <div class="input-field col s6">
                                         <input
-                                            placeholder="Director"
-                                            id="director"
-                                            name="director"
+                                            placeholder="Screening Time"
+                                            id="screeningTime"
+                                            name="screeningTime"
                                             type="text"
-                                            class="validate">
-                                            <label for="director">Director</label>
+                                            class="timepicker"
+                                            step="1">
+                                            <label for="film_category">Screening Time</label>
                                         </div>
                                         <div class="input-field col s6">
                                             <input
-                                                placeholder="Producer"
-                                                id="producer"
-                                                name="producer"
+                                                placeholder="Director In English"
+                                                id="director"
+                                                name="director"
                                                 type="text"
                                                 class="validate">
-                                                <label for="director">Producer</label>
+                                                <label for="director">Director in English</label>
                                             </div>
                                             <div class="input-field col s6">
                                                 <input
-                                                    placeholder="Editor"
-                                                    id="editor"
-                                                    name="editor"
+                                                    placeholder="Director In Armenian"
+                                                    id="director_hy"
+                                                    name="director_hy"
                                                     type="text"
                                                     class="validate">
-                                                    <label for="director">Editor</label>
+                                                    <label for="director">Director In Armenian</label>
                                                 </div>
                                                 <div class="input-field col s6">
                                                     <input
-                                                        placeholder="Executive Producer"
-                                                        id="exProducer"
-                                                        name="exProducer"
+                                                        placeholder="Producer In English"
+                                                        id="producer"
+                                                        name="producer"
                                                         type="text"
                                                         class="validate">
-                                                        <label for="director">Executive Producer</label>
+                                                        <label for="producer">Producer In English</label>
                                                     </div>
                                                     <div class="input-field col s6">
-                                                        <input placeholder="Cast" id="cast" name="cast" type="text" class="validate">
-                                                            <label for="director">Cast</label>
+                                                        <input
+                                                            placeholder="Producer In Armenian"
+                                                            id="producer_hy"
+                                                            name="producer_hy"
+                                                            type="text"
+                                                            class="validate">
+                                                            <label for="producer_hy">Producer In Armenian</label>
                                                         </div>
                                                         <div class="input-field col s6">
                                                             <input
-                                                                placeholder="Film ID (ex: 403770068)"
-                                                                id="fLink"
-                                                                name="fLink"
+                                                                placeholder="Editor In English"
+                                                                id="editor"
+                                                                name="editor"
                                                                 type="text"
                                                                 class="validate">
-                                                                <label for="director">Film ID (ex: 403770068)</label>
+                                                                <label for="editor">Editor In English</label>
                                                             </div>
-                                                            <div class="switch">
-                                                                <label>
-                                                                    Off
-                                                                    <input id="plPlug" type="checkbox" name="show" value="hide">
-                                                                        <span class="lever"></span>
-                                                                        On
-                                                                    </label>
-                                                                    <label>
-                                                                        <input type="checkbox" class="filled-in" name="event" value="true"/>
-                                                                        <span>Event</span>
-                                                                    </label>
+                                                            <div class="input-field col s6">
+                                                                <input
+                                                                    placeholder="Editor In Armenian"
+                                                                    id="editor_hy"
+                                                                    name="editor_hy"
+                                                                    type="text"
+                                                                    class="validate">
+                                                                    <label for="editor_hy">Editor In Armenian</label>
                                                                 </div>
-                                                                <div class="file-field input-field col s6">
-                                                                    <div class="btn">
-                                                                        <span>IMG</span>
-                                                                        <input type="file" name="img"></div>
-                                                                        <div class="file-path-wrapper">
-                                                                            <input class="file-path validate" type="text"></div>
+                                                                <div class="input-field col s6">
+                                                                    <input
+                                                                        placeholder="Executive Producer In English"
+                                                                        id="exProducer"
+                                                                        name="exProducer"
+                                                                        type="text"
+                                                                        class="validate">
+                                                                        <label for="exProducer">Executive Producer In English</label>
+                                                                    </div>
+                                                                    <div class="input-field col s6">
+                                                                        <input
+                                                                            placeholder="Executive Producer In Armenian"
+                                                                            id="exProducer_hy"
+                                                                            name="exProducer_hy"
+                                                                            type="text"
+                                                                            class="validate">
+                                                                            <label for="exProducer_hy">Executive Producer In Armenian</label>
                                                                         </div>
-                                                                        <div class="file-field input-field col s6">
-                                                                            <div class="btn">
-                                                                                <span>IMG Gallery</span>
-                                                                                <input type="file" name="imgGal" multiple="multiple"></div>
-                                                                                <div class="file-path-wrapper">
-                                                                                    <input class="file-path validate" type="text"></div>
+                                                                        <div class="input-field col s6">
+                                                                            <input
+                                                                                placeholder="Cast In English"
+                                                                                id="cast"
+                                                                                name="cast"
+                                                                                type="text"
+                                                                                class="validate">
+                                                                                <label for="cast">Cast In English</label>
+                                                                            </div>
+                                                                            <div class="input-field col s6">
+                                                                                <input
+                                                                                    placeholder="Cast"
+                                                                                    id="cast_hy"
+                                                                                    name="cast_hy"
+                                                                                    type="text"
+                                                                                    class="validate">
+                                                                                    <label for="cast_hy">Cast In Armenian</label>
                                                                                 </div>
-
                                                                                 <div class="input-field col s6">
                                                                                     <input
-                                                                                        placeholder="Country"
-                                                                                        id="country"
-                                                                                        name="country"
+                                                                                        placeholder="Film ID (ex: 403770068)"
+                                                                                        id="fLink"
+                                                                                        name="fLink"
                                                                                         type="text"
                                                                                         class="validate">
-                                                                                        <label for="country">Country</label>
+                                                                                        <label for="director">Film ID (ex: 403770068)</label>
                                                                                     </div>
-                                                                                    <div class="input-field col s6">
-                                                                                        <input
-                                                                                            placeholder="Language"
-                                                                                            id="lang"
-                                                                                            name="lang"
-                                                                                            type="text"
-                                                                                            class="validate">
-                                                                                            <label for="lang">Language</label>
+                                                                                    <div class="switch">
+                                                                                        <label>
+                                                                                            Off
+                                                                                            <input id="plPlug" type="checkbox" name="show" value="hide">
+                                                                                                <span class="lever"></span>
+                                                                                                On
+                                                                                            </label>
+                                                                                            <label>
+                                                                                                <input type="checkbox" class="filled-in" name="event" value="true"/>
+                                                                                                <span>Event</span>
+                                                                                            </label>
                                                                                         </div>
-                                                                                        <div class="input-field col s6">
-                                                                                            <textarea id="description" name="description" class="materialize-textarea"></textarea>
-                                                                                            <label for="description">Description</label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <button class="btn waves-effect waves-light">Add Film
-                                                                                    </button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
+                                                                                        <div class="file-field input-field col s6">
+                                                                                            <div class="btn">
+                                                                                                <span>IMG</span>
+                                                                                                <input type="file" name="img"></div>
+                                                                                                <div class="file-path-wrapper">
+                                                                                                    <input class="file-path validate" type="text"></div>
+                                                                                                </div>
+                                                                                                <div class="file-field input-field col s6">
+                                                                                                    <div class="btn">
+                                                                                                        <span>IMG Gallery</span>
+                                                                                                        <input type="file" name="imgGal" multiple="multiple"></div>
+                                                                                                        <div class="file-path-wrapper">
+                                                                                                            <input class="file-path validate" type="text"></div>
+                                                                                                        </div>
 
-                                                                <script type="text/javascript">
-                                                                    document.addEventListener('DOMContentLoaded', function () {
-                                                                        const options = {
-                                                                            format: 'mmm dd'
-                                                                        }
-                                                                        const elems = document.querySelectorAll('.datepicker');
-                                                                        const instances = M
-                                                                            .Datepicker
-                                                                            .init(elems, options);
+                                                                                                        <div class="input-field col s6">
+                                                                                                            <input
+                                                                                                                placeholder="Country In English"
+                                                                                                                id="country"
+                                                                                                                name="country"
+                                                                                                                type="text"
+                                                                                                                class="validate">
+                                                                                                                <label for="country">Country In English</label>
+                                                                                                            </div>
+                                                                                                            <div class="input-field col s6">
+                                                                                                                <input
+                                                                                                                    placeholder="Country In Armenian"
+                                                                                                                    id="country"
+                                                                                                                    name="country_hy"
+                                                                                                                    type="text"
+                                                                                                                    class="validate">
+                                                                                                                    <label for="country_hy">Country In Armenian</label>
+                                                                                                                </div>
+                                                                                                                <div class="input-field col s6">
+                                                                                                                    <input
+                                                                                                                        placeholder="Language In English"
+                                                                                                                        id="lang"
+                                                                                                                        name="lang"
+                                                                                                                        type="text"
+                                                                                                                        class="validate">
+                                                                                                                        <label for="lang">Language In English</label>
+                                                                                                                    </div>
+                                                                                                                    <div class="input-field col s6">
+                                                                                                                        <input
+                                                                                                                            placeholder="Language In Armenian"
+                                                                                                                            id="lang"
+                                                                                                                            name="lang_hy"
+                                                                                                                            type="text"
+                                                                                                                            class="validate">
+                                                                                                                            <label for="lang_hy">Language In Armenian</label>
+                                                                                                                        </div>
+                                                                                                                        <div class="input-field col s6">
+                                                                                                                            <textarea
+                                                                                                                                id="description"
+                                                                                                                                name="description"
+                                                                                                                                class="materialize-textarea"
+                                                                                                                                placeholder="Text In English"></textarea>
+                                                                                                                            <label for="description">Description In English</label>
+                                                                                                                        </div>
+                                                                                                                        <div class="input-field col s6">
+                                                                                                                            <textarea
+                                                                                                                                id="description_hy"
+                                                                                                                                name="description_hy"
+                                                                                                                                class="materialize-textarea"
+                                                                                                                                placeholder="Text In Armenian"></textarea>
+                                                                                                                            <label for="description_hy">Description In Armenian</label>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <button class="btn waves-effect waves-light">Add Film
+                                                                                                                    </button>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </form>
+                                                                                                    </div>
+                                                                                                </div>
 
-                                                                    });
-                                                                    document.addEventListener('DOMContentLoaded', function () {
-                                                                        const options = {
-                                                                            twelveHour: false
-                                                                        }
-                                                                        const elems = document.querySelectorAll('.timepicker');
-                                                                        const instances = M
-                                                                            .Timepicker
-                                                                            .init(elems, options);
-                                                                    });
-                                                                    document.addEventListener('DOMContentLoaded', function () {
-                                                                        const elems = document.querySelectorAll('select');
-                                                                        const instances = M
-                                                                            .FormSelect
-                                                                            .init(elems);
-                                                                    });
-                                                                    let btnn = document.querySelector('#plPlug')
-                                                                    btnn.addEventListener('change', () => {
-                                                                        if (btnn.value === "show") {
-                                                                            btnn.value = "hide"
-                                                                        } else if (btnn.value === "hide") {
-                                                                            btnn.value = "show"
-                                                                        }
-                                                                        console.log(btnn.value)
+                                                                                                <script type="text/javascript">
+                                                                                                    document.addEventListener('DOMContentLoaded', function () {
+                                                                                                        const options = {
+                                                                                                            format: 'mmm dd'
+                                                                                                        }
+                                                                                                        const elems = document.querySelectorAll('.datepicker');
+                                                                                                        const instances = M
+                                                                                                            .Datepicker
+                                                                                                            .init(elems, options);
 
-                                                                    })
-                                                                </script>
+                                                                                                    });
+                                                                                                    document.addEventListener('DOMContentLoaded', function () {
+                                                                                                        const options = {
+                                                                                                            twelveHour: false
+                                                                                                        }
+                                                                                                        const elems = document.querySelectorAll('.timepicker');
+                                                                                                        const instances = M
+                                                                                                            .Timepicker
+                                                                                                            .init(elems, options);
+                                                                                                    });
+                                                                                                    document.addEventListener('DOMContentLoaded', function () {
+                                                                                                        const elems = document.querySelectorAll('select');
+                                                                                                        const instances = M
+                                                                                                            .FormSelect
+                                                                                                            .init(elems);
+                                                                                                    });
+                                                                                                    let btnn = document.querySelector('#plPlug')
+                                                                                                    btnn.addEventListener('change', () => {
+                                                                                                        if (btnn.value === "show") {
+                                                                                                            btnn.value = "hide"
+                                                                                                        } else if (btnn.value === "hide") {
+                                                                                                            btnn.value = "show"
+                                                                                                        }
+                                                                                                        console.log(btnn.value)
+
+                                                                                                    })
+                                                                                                </script>

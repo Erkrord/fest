@@ -1,108 +1,248 @@
-{{#if ishome}}
-    <header class="Header"><img
-        class="brand"
-        src="https://www.fpwc.org/wp-content/uploads/2021/10/wildfire-opt.jpg"
-        alt="SIEF"></header>
-{{/if}}
-{{#if isschedule}}
-    <header class="Header"><img
-        class="brand"
-        src="https://www.fpwc.org/wp-content/uploads/2021/10/wildfire-opt.jpg"
-        alt="SIEF"></header>
-{{/if}}
-{{#if isabout}}
-    <header class="Header"><img
-        class="brand"
-        src="https://www.fpwc.org/wp-content/uploads/2021/10/wildfire-opt.jpg"
-        alt="SIEF"></header>
-{{/if}}
-<nav>
-
-    <div class="nav-wrapper grey darken-4">
-        <a href="/" class="brand-logo">SunChild IEF</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li>
-                {{> search}}</li>
-            {{#if ishome}}
-                <li class="active">
-                    <a href="/">BROWSE</a>
-                </li>
-            {{else}}
-                <li>
-                    <a href="/">BROWSE</a>
-                </li>
-            {{/if}}
-            {{#if isschedule}}
-                <li class="active">
-                    <a href="/schedule">SCHEDULE</a>
-                </li>
-            {{else}}
-                <li >
-                    <a href="/schedule">SCHEDULE</a>
-                </li>
-            {{/if}}
-            {{#if isabout}}
-                <li class="active">
-                    <a href="/about">ABOUT</a>
-                </li>
-            {{else}}
-                <li>
-                    <a href="/about">ABOUT</a>
-                </li>
-            {{/if}}
-            <li>
-                <a href="//www.facebook.com/fpwc.arm" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            </li>
-             <li>
-                <a href="//twitter.com/FPWC_news" target="_blank"><i class="fab fa-twitter"></i></a>
-            </li>
-            <li>
-                <a href="//www.instagram.com/fpwc/" target="_blank"><i class="fab fa-instagram"></i></sa>
-            </li>
-        </ul>  
-        <a href="#" data-target="slide-out" class="sidenav-trigger">
-            <i class="material-icons">menu</i>
-        </a>
-    </div>
-</nav>
-
-<ul id="slide-out" class="sidenav">
-    <li>
-        {{> search}}</li>
+{{#if (localeIs "en")}}
     {{#if ishome}}
-        <li class="active">
-            <a href="/">BROWSE</a>
-        </li>
-    {{else}}
-        <li>
-            <a href="/">BROWSE</a>
-        </li>
+        <header class="Header"><img
+            class="brand"
+            src="https://www.fpwc.org/wp-content/uploads/2021/10/wildfire-opt.jpg"
+            alt="SIEF"></header>
     {{/if}}
     {{#if isschedule}}
-        <li class="active">
-            <a href="/schedule">SCHEDULE</a>
-        </li>
-    {{else}}
-        <li >
-            <a href="/schedule">SCHEDULE</a>
-        </li>
+        <header class="Header"><img
+            class="brand"
+            src="https://www.fpwc.org/wp-content/uploads/2021/10/wildfire-opt.jpg"
+            alt="SIEF"></header>
     {{/if}}
     {{#if isabout}}
-        <li class="active">
-            <a href="/about">ABOUT</a>
-        </li>
-    {{else}}
-        <li>
-            <a href="/about">ABOUT</a>
-        </li>
+        <header class="Header"><img
+            class="brand"
+            src="https://www.fpwc.org/wp-content/uploads/2021/10/wildfire-opt.jpg"
+            alt="SIEF"></header>
     {{/if}}
-</ul>
+    <nav>
 
+        <div class="nav-wrapper grey darken-4">
+            <a href="/" class="brand-logo">SunChild IEF</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    <form method="POST" action="/loc">
+                        <input type="hidden" name="_csrf" value="{{@root.tkn}}">
+                        <button type="submit" name='lng' value="hy" class="lngBtn">HY</button>
+                    </form>
+                </li>
+                <li>
+                    {{> search}}</li>
+                {{#if ishome}}
+                    <li class="active">
+                        <a href="/">BROWSE</a>
+                    </li>
+                {{else}}
+                    <li>
+                        <a href="/">BROWSE</a>
+                    </li>
+                {{/if}}
+                {{#if isschedule}}
+                    <li class="active">
+                        <a href="/schedule">SCHEDULE</a>
+                    </li>
+                {{else}}
+                    <li >
+                        <a href="/schedule">SCHEDULE</a>
+                    </li>
+                {{/if}}
+                {{#if isabout}}
+                    <li class="active">
+                        <a href="/about">ABOUT</a>
+                    </li>
+                {{else}}
+                    <li>
+                        <a href="/about">ABOUT</a>
+                    </li>
+                {{/if}}
+                <li>
+                    <a href="//www.facebook.com/fpwc.arm" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="//twitter.com/FPWC_news" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="//www.instagram.com/fpwc/" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </sa>
+                </li>
+            </ul>
+            <a href="#" data-target="slide-out" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
+             <form method="POST" action="/loc" class="mobLng">
+                <input type="hidden" name="_csrf" value="{{@root.tkn}}">
+                <button type="submit" name='lng' value="hy" class="lngBtn">HY</button>
+            </form>
+        </div>
+    </nav>
+
+    <ul id="slide-out" class="sidenav">
+        <li>
+            {{> search}}</li>
+        {{#if ishome}}
+            <li class="active">
+                <a href="/">BROWSE</a>
+            </li>
+        {{else}}
+            <li>
+                <a href="/">BROWSE</a>
+            </li>
+        {{/if}}
+        {{#if isschedule}}
+            <li class="active">
+                <a href="/schedule">SCHEDULE</a>
+            </li>
+        {{else}}
+            <li >
+                <a href="/schedule">SCHEDULE</a>
+            </li>
+        {{/if}}
+        {{#if isabout}}
+            <li class="active">
+                <a href="/about">ABOUT</a>
+            </li>
+        {{else}}
+            <li>
+                <a href="/about">ABOUT</a>
+            </li>
+        {{/if}}   
+    </ul>
+{{/if}}
+{{#if (localeIs "hy")}}
+    {{#if ishome}}
+        <header class="Header"><img
+            class="brand"
+            src="https://www.fpwc.org/wp-content/uploads/2021/10/wildfire-opt.jpg"
+            alt="SIEF"></header>
+    {{/if}}
+    {{#if isschedule}}
+        <header class="Header"><img
+            class="brand"
+            src="https://www.fpwc.org/wp-content/uploads/2021/10/wildfire-opt.jpg"
+            alt="SIEF"></header>
+    {{/if}}
+    {{#if isabout}}
+        <header class="Header"><img
+            class="brand"
+            src="https://www.fpwc.org/wp-content/uploads/2021/10/wildfire-opt.jpg"
+            alt="SIEF"></header>
+    {{/if}}
+    <nav>
+
+        <div class="nav-wrapper grey darken-4">
+            <a href="/" class="brand-logo">Արևորդի</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    <form method="POST" action="/loc">
+                        <input type="hidden" name="_csrf" value="{{@root.tkn}}">
+                        <button type="submit" name='lng' value="en" class="lngBtn">EN</button>
+                    </form>
+                </li>
+                <li>
+                    {{> search}}</li>
+                {{#if ishome}}
+                    <li class="active">
+                        <a href="/">Ֆիլմեր</a>
+                    </li>
+                {{else}}
+                    <li>
+                        <a href="/">Ֆիլմեր</a>
+                    </li>
+                {{/if}}
+                {{#if isschedule}}
+                    <li class="active">
+                        <a href="/schedule">Ժամանակացույց</a>
+                    </li>
+                {{else}}
+                    <li >
+                        <a href="/schedule">Ժամանակացույց</a>
+                    </li>
+                {{/if}}
+                {{#if isabout}}
+                    <li class="active">
+                        <a href="/about">Մեր մասին</a>
+                    </li>
+                {{else}}
+                    <li>
+                        <a href="/about">Մեր մասին</a>
+                    </li>
+                {{/if}}
+                <li>
+                    <a href="//www.facebook.com/fpwc.arm" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="//twitter.com/FPWC_news" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="//www.instagram.com/fpwc/" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </sa>
+                </li>
+            </ul>
+            <a href="#" data-target="slide-out" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
+            <form method="POST" action="/loc" class="mobLng">
+                <input type="hidden" name="_csrf" value="{{@root.tkn}}">
+                <button type="submit" name='lng' value="en" class="lngBtn">EN</button>
+            </form>
+        </div>
+    </nav>
+
+    <ul id="slide-out" class="sidenav">
+        <li>
+            {{> search}}</li>
+        {{#if ishome}}
+            <li class="active">
+                <a href="/">Ֆիլմեր</a>
+            </li>
+        {{else}}
+            <li>
+                <a href="/">Ֆիլմեր</a>
+            </li>
+        {{/if}}
+        {{#if isschedule}}
+            <li class="active">
+                <a href="/schedule">Ժամանակացույց</a>
+            </li>
+        {{else}}
+            <li >
+                <a href="/schedule">Ժամանակացույց</a>
+            </li>
+        {{/if}}
+        {{#if isabout}}
+            <li class="active">
+                <a href="/about">Մեր մասին</a>
+            </li>
+        {{else}}
+            <li>
+                <a href="/about">Մեր մասին</a>
+            </li>
+        {{/if}}
+    </ul>
+{{/if}}
 <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function () {
-        var elems = document.querySelectorAll('.sidenav');
-        var instances = M
+        const elems = document.querySelectorAll('.sidenav');
+        const instances = M
             .Sidenav
+            .init(elems);
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        const elems = document.querySelectorAll('select');
+        const instances = M
+            .FormSelect
             .init(elems);
     });
 </script>

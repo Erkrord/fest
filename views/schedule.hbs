@@ -1,7 +1,12 @@
 <div class="container-fluid bg-pale">
     <div class="container--content">
         <h3 class="ScheduleTime">
+            {{#if (localeIs "en")}}
             <span class="may">November</span>
+            {{/if}}
+            {{#if (localeIs "hy")}}
+            <span class="may">Նոյեմբեր</span>
+            {{/if}}
         </h3>
         <div class="scheduleNav">
             {{#each date}}

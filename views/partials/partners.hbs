@@ -1,6 +1,11 @@
 <div class="footer text-center grey darken-4">
     <img src="http://sunchild.fpwc.org/wp-content/uploads/2020/01/Logo-SIEFF-White.png"/>
+    {{#if (localeIs "en")}}
     <h2 class="hind-text ">PARTNERS</h2>
+    {{/if}}
+    {{#if (localeIs "hy")}}
+    <h2 class="hind-text ">Գործընկերներ</h2>
+    {{/if}}
     <div class="festivals">
         {{#each partner}}
             <a href="//{{link}}" target="_blank" rel="noopener noreferrer">

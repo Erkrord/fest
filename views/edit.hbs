@@ -9,26 +9,49 @@
             <div class="row">
                 <div class="input-field col s6">
                     <input
-                        placeholder="Type Film Name"
+                        placeholder="Type Film Name In English"
                         name="title"
                         id="film_name"
                         type="text"
                         class="validate"
-                        value="{{film.title}}">
-                        <label for="first_name">Film Name</label>
+                        value="{{film.title.en}}">
+                        <label for="film_name">Film Name In Armenian</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input
+                        placeholder="Type Film Name In Armenian"
+                        name="title_hy"
+                        id="film_name_hy"
+                        type="text"
+                        class="validate"
+                        value="{{film.title.hy}}">
+                        <label for="film_name_hy">Film Name In Armenian</label>
                     </div>
                     <div class="input-field col s6">
                         <select id="category" name="category" class="validate">
-                            <option value="{{film.category}}" disabled="disabled" selected="selected">{{film.category}}</option>
+                            <option value="{{film.category.en}}" disabled="disabled" selected="selected">{{film.category.en}}</option>
                             <option value="Wildlife Conservation Films">Wildlife Conservation Films</option>
                             <option value="Environmental Films">Environmental Films</option>
-                            <option value="Youth and Children Films">Youth and Children Films</option>
+                            <option value="Educational Films">Educational Films</option>
                             <option value="Wildfire Prevention Films">Wildfire Prevention Films</option>
-                            <option value="Non-Competition Films">Non-Competition Films</option>
+                            <option value="Informational Film Program">Informational Film Program</option>
                             <option value="Events">Events</option>
                             <option value="Journalistic Competition">Journalistic Competition</option>
                         </select>
-                        <label>Materialize Multiple Select</label>
+                        <label>Slect Category In English</label>
+                    </div>
+                    <div class="input-field col s6">
+                                <select id="category_hy" name="category_hy" class="validate">
+                                    <option value="" disabled="disabled" selected="selected">{{film.category.hy}}</option>
+                                    <option value="Վայրի բնության պահպանություն">Վայրի բնության պահպանություն</option>
+                                    <option value="Բնապահպանական Խնդիրներ">Բնապահպանական Խնդիրներ</option>
+                                    <option value="Կրթական">Կրթական</option>
+                                    <option value="Անտառային հրդեհներ">Անտառային հրդեհներ</option>
+                                    <option value="Տեղեկատվական ծրագիր">Տեղեկատվական ծրագիր</option>
+                                    <option value="Միջոցառումներ">Միջոցառումներ</option>
+                                    <option value="Լրագրողական հետաքննություն">Լրագրողական հետաքննություն</option>
+                                </select>
+                                <label for="category_hy">Select Category In Armenian</label>
                     </div>
 
                     <div class="input-field col s6">
@@ -64,23 +87,43 @@
                                 </div>
                                 <div class="input-field col s6">
                                     <input
-                                        placeholder="Director"
+                                        placeholder="Director In English"
                                         id="director"
                                         name="director"
                                         type="text"
                                         class="validate"
-                                        value="{{film.director}}">
-                                        <label for="director">Director</label>
+                                        value="{{film.director.en}}">
+                                        <label for="director">Director In English</label>
                                     </div>
                                     <div class="input-field col s6">
                                         <input
-                                            placeholder="Producer"
+                                        placeholder="Director In Armenian"
+                                        id="director_hy"
+                                        name="director_hy"
+                                        type="text"
+                                        class="validate"
+                                        value="{{film.director.hy}}">
+                                        <label for="director_hy">Director In Armenian</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input
+                                            placeholder="Producer In English"
                                             id="producer"
                                             name="producer"
                                             type="text"
                                             class="validate"
-                                            value="{{film.producer}}">
-                                            <label for="director">Producer</label>
+                                            value="{{film.producer.en}}">
+                                            <label for="producer">Producer In English</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <input
+                                            placeholder="Producer In Armenian"
+                                            id="producer_hy"
+                                            name="producer_hy"
+                                            type="text"
+                                            class="validate"
+                                            value="{{film.producer.hy}}">
+                                            <label for="producer_hy">Producer</label>
                                         </div>
                                         <div class="input-field col s6">
                                             <input
@@ -89,18 +132,38 @@
                                                 name="editor"
                                                 type="text"
                                                 class="validate"
-                                                value="{{film.editor}}">
-                                                <label for="director">Editor</label>
+                                                value="{{film.editor.en}}">
+                                                <label for="editor">Editor In English</label>
                                             </div>
                                             <div class="input-field col s6">
                                                 <input
-                                                    placeholder="Executive Producer"
+                                                placeholder="Editor In Armenian"
+                                                id="editor_hy"
+                                                name="editor_hy"
+                                                type="text"
+                                                class="validate"
+                                                value="{{film.editor.hy}}">
+                                                <label for="editor_hy">Editor In Armenian</label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input
+                                                    placeholder="Executive Producer In English"
                                                     id="exProducer"
                                                     name="exProducer"
                                                     type="text"
                                                     class="validate"
-                                                    value="{{film.exProducer}}">
-                                                    <label for="director">Executive Producer</label>
+                                                    value="{{film.exProducer.en}}">
+                                                    <label for="director">Executive Producer In English</label>
+                                                </div>
+                                                <div class="input-field col s6">
+                                                    <input
+                                                    placeholder="Executive Producer In Armenian"
+                                                    id="exProducer_hy"
+                                                    name="exProducer_hy"
+                                                    type="text"
+                                                    class="validate"
+                                                    value="{{film.exProducer.hy}}">
+                                                    <label for="exProducer_hy">Executive Producer In Armenian</label>
                                                 </div>
                                                 <div class="input-field col s6">
                                                     <input
@@ -109,8 +172,18 @@
                                                         name="cast"
                                                         type="text"
                                                         class="validate"
-                                                        value="{{film.cast}}">
-                                                        <label for="director">Cast</label>
+                                                        value="{{film.cast.en}}">
+                                                        <label for="cast">Cast In English</label>
+                                                    </div>
+                                                    <div class="input-field col s6">
+                                                        <input
+                                                        placeholder="Cast In Armenian"
+                                                        id="cast_hy"
+                                                        name="cast_hy"
+                                                        type="text"
+                                                        class="validate"
+                                                        value="{{film.cast.hy}}">
+                                                        <label for="cast_hy">Cast in Armenian</label>
                                                     </div>
                                                     <div class="input-field col s6">
                                                         <input
@@ -156,22 +229,46 @@
                                                                                     name="country"
                                                                                     type="text"
                                                                                     class="validate"
-                                                                                    value="{{film.country}}">
-                                                                                    <label for="country">Country</label>
+                                                                                    value="{{film.country.en}}">
+                                                                                    <label for="country">Country In English</label>
                                                                                 </div>
                                                                                 <div class="input-field col s6">
                                                                                     <input
-                                                                                        placeholder="Language"
+                                                                                    placeholder="Country"
+                                                                                    id="country_hy"
+                                                                                    name="country_hy"
+                                                                                    type="text"
+                                                                                    class="validate"
+                                                                                    value="{{film.country.hy}}">
+                                                                                    <label for="country_hy">Country In Armenian</label>
+                                                                                </div>
+                                                                                <div class="input-field col s6">
+                                                                                    <input
+                                                                                        placeholder="Language In English"
                                                                                         id="lang"
                                                                                         name="lang"
                                                                                         type="text"
                                                                                         class="validate"
-                                                                                        value="{{film.languages}}">
-                                                                                        <label for="lang">Language</label>
+                                                                                        value="{{film.languages.en}}">
+                                                                                        <label for="lang">Language In English</label>
                                                                                     </div>
                                                                                     <div class="input-field col s6">
-                                                                                        <textarea id="description" name="description" class="materialize-textarea">{{film.description}}</textarea>
-                                                                                        <label for="description">Description</label>
+                                                                                        <input
+                                                                                        placeholder="Language In Armenian"
+                                                                                        id="lang_hy"
+                                                                                        name="lang_hy"
+                                                                                        type="text"
+                                                                                        class="validate"
+                                                                                        value="{{film.languages.hy}}">
+                                                                                        <label for="lang_hy">Language In Armenian</label>
+                                                                                    </div>
+                                                                                    <div class="input-field col s6">
+                                                                                        <textarea id="description" name="description" class="materialize-textarea"></textarea>
+                                                                                        <label for="description">Description In English</label>
+                                                                                    </div>
+                                                                                    <div class="input-field col s6">
+                                                                                        <textarea id="description_hy" name="description_hy" class="materialize-textarea" value="{{film.description.en}}"></textarea>
+                                                                                        <label for="description_hy">Description In Armenian</label>
                                                                                     </div>
                                                                                 </div>
                                                                                 <button class="btn waves-effect waves-light">Update

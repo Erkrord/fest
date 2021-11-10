@@ -1,50 +1,86 @@
-<div class="fixed-action-btn">
-    <a class="waves-effect waves-light btn modal-trigger teal darken-4" href="#sbs">Subscribe</a><br />
-    {{#if subscribed}}
-        <script type="text/javascript">
-            iziToast.show({
-                    title: 'You have successfully subscribed !',
-                    color: 'green'
-                    });
-        </script>
-    {{/if}}
-<!-- SBS Structure -->
-<div id="sbs" class="modal sbs">
-    <div class="modal-content offset-s3">
-        <h4>Stay Informed</h4>
-        <p>Sign up to learn more about upcoming events, activities, and our work to
-            preserving the wildlife and cultural values of Armenia.</p>
-    </div>
+{{#if (localeIs "en")}}
+    <div class="fixed-action-btn">
+        <a class="waves-effect waves-light btn modal-trigger teal darken-4" href="#sbs">Subscribe</a><br/>
+        {{#if subscribed}}
+            <script type="text/javascript">
+                iziToast.show({title: 'You have successfully subscribed !', color: 'green'});
+            </script>
+        {{/if}}
+        <!-- SBS Structure -->
+        <div id="sbs" class="modal sbs">
+            <div class="modal-content offset-s3">
+                <h4>Stay Informed</h4>
+                <p>Sign up to learn more about upcoming events, activities, and our work to
+                    preserving the wildlife and cultural values of Armenia.</p>
+            </div>
 
-    <div class="row">
-        <form action="/sbs" method="POST">
             <div class="row">
-                <div class="input-field col s6  offset-s3">
-                    <input
-                        required="required"
-                        id="email"
-                        type="email"
-                        class="validate"
-                        name="sbsemail">
-                        <label for="email">Email</label>
-                    </div>
-                    <div class="input-field col s6 offset-s3">
-                        <input id="urlInp" type="hidden" name="url" value="">
-                        <input type="hidden" name="_csrf" value="{{tkn}}">
+                <form action="/sbs" method="POST">
+                    <div class="row">
+                        <div class="input-field col s6  offset-s3">
+                            <input
+                                required="required"
+                                id="email"
+                                type="email"
+                                class="validate"
+                                name="sbsemail">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-field col s6 offset-s3">
+                            <input id="urlInp" type="hidden" name="url" value="">
+                            <input type="hidden" name="_csrf" value="{{tkn}}">
                             <button id='sbsBtn' type="submit" class="btn btn-primary grey darken-4">Subscribe</button>
                         </div>
                     </form>
                 </div>
+            {{/if}}
+            {{#if (localeIs "hy")}}
+                <div class="fixed-action-btn">
+                    <a class="waves-effect waves-light btn modal-trigger teal darken-4" href="#sbs">Բաժանորդագրվել</a><br/>
+                    {{#if subscribed}}
+                        <script type="text/javascript">
+                            iziToast.show({title: 'Դուք բաժանորդագրված եք !', color: 'green'});
+                        </script>
+                    {{/if}}
+                    <!-- SBS Structure -->
+                    <div id="sbs" class="modal sbs">
+                        <div class="modal-content offset-s3">
+                            <h4>Հետևեք նորություններին</h4>
+                            <p>Գրանցվեք այստեղ՝ տեղեկացված լինելու առաջիկա միջոցառումների և Հայաստանի վայրի
+                                բնության և մշակութային արժեքների պահպանման ուղղությամբ տարվող մեր գործունեության
+                                մասին։
+                            </p>
+                        </div>
 
-                <script type="text/javascript">
-                    document.addEventListener('DOMContentLoaded', function () {
-                        let elems = document.querySelectorAll('.modal');
-                        let instances = M
-                            .Modal
-                            .init(elems);
-                        const urlInp = document.getElementById('urlInp')
-                        let url = window.location.href
-                        urlInp.value = url
+                        <div class="row">
+                            <form action="/sbs" method="POST">
+                                <div class="row">
+                                    <div class="input-field col s6  offset-s3">
+                                        <input
+                                            required="required"
+                                            id="email"
+                                            type="email"
+                                            class="validate"
+                                            name="sbsemail">
+                                        <label for="email">Email</label>
+                                    </div>
+                                    <div class="input-field col s6 offset-s3">
+                                        <input id="urlInp" type="hidden" name="url" value="">
+                                        <input type="hidden" name="_csrf" value="{{tkn}}">
+                                        <button id='sbsBtn' type="submit" class="btn btn-primary grey darken-4">Բաժանորդագրվել</button>
+                                    </div>
+                                </form>
+                            </div>
+                        {{/if}}
+                        <script type="text/javascript">
+                            document.addEventListener('DOMContentLoaded', function () {
+                                let elems = document.querySelectorAll('.modal');
+                                let instances = M
+                                    .Modal
+                                    .init(elems);
+                                const urlInp = document.getElementById('urlInp')
+                                let url = window.location.href
+                                urlInp.value = url
 
-                    });
-                </script>
+                            });
+                        </script>

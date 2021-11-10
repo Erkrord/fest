@@ -25,7 +25,6 @@ router.post('/remove/:id', async (req, res) => {
     try {
         await Film.deleteOne({id: req.params.id})
         res.redirect('/admin')
-        console.log('Ok')
     } catch (err) {
         console.log(err)
     }
@@ -53,104 +52,212 @@ router.post('/edit/visible/:id', letin, async (req, res) => {
             id: req.params.id
         }, {show: req.body.show})
         res.redirect('/admin');
-        console.log(req.body)
     } catch (err) {
         console.log(err)
     }
 
 })
-router.post(
-    '/edit/update/:id',
-    imgMidle.upload.fields([{name: 'img', maxCount: 1}, {name: 'imgGal', maxCount: 5}]),
-    letin,
-    async (req, res) => {
-        try {
-            const isEvent = () => {
-                if (req.body.event){
-                    return true
-                }else{
-                    return false
-                }
-            }
-            if (req.body.show) {
-                req.body.show = req.body.show
+router.post('/edit/update/:id', imgMidle.upload.fields([
+    {
+        name: 'img',
+        maxCount: 1
+    }, {
+        name: 'imgGal',
+        maxCount: 5
+    }
+]), letin, async (req, res) => {
+    try {
+        const isEvent = () => {
+            if (req.body.event) {
+                return true
             } else {
-                req.body.show = 'hide'
+                return false
             }
-            if (req.files.img && req.files.imgGal) {
-                const filename = req.files.img.map(function(file) {
-                    return file.filename
-                   })
-                const filenames = req.files.imgGal.map(function(file) {
-                      return file.filename
-                     })
-                await Film.updateOne({
-                    id: req.params.id
-                }, {
-                    ...req.body,
-                    img: filename.toString(),
-                    imgGal: filenames,
-                    event: isEvent()
-                })
-                for(let i = 0; i < filenames.length; i++) {
-                    const files = {img: filenames[i]}
-                    console.log(files)
-                   Media.insertMany(files)
-               }
-                const media = Media({img: filename})
-                await media.save(console.log("Image Added"))
-            }else if (req.files.img) {
-                const filename = req.files.img.map(function(file) {
-                    return file.filename
-                   })
-                await Film.updateOne({
-                    id: req.params.id
-                }, {
-                    ...req.body,
-                    img: filename.toString(),
-                    event: isEvent()
-                })
-                const media = Media({img: filename.toString()})
-                await media.save(console.log("Image Added"))
-            }else if(req.files.imgGal){
-                const filenames = req.files.imgGal.map(function(file) {
-                      return file.filename
-                     })
-                await Film.updateOne({
-                    id: req.params.id
-                }, {
-                    ...req.body,
-                    img: null,
-                    imgGal: filenames,
-                    event: isEvent()
-                })
-                for(let i = 0; i < filenames.length; i++) {
-                    const files = {img: filenames[i]}
-                    console.log(files)
-                   Media.insertMany(files)
-               }
-            }else{
-                await Film.updateOne({
-                    id: req.params.id
-                }, {
-                   ...req.body,
-                   languages: req.body.lang,
-                   event: isEvent()
-                })
-                
-            console.log(req.body.lang)
-            }
-            res.redirect('/admin')
-            console.log('Ok')
-            console.log(req.body.show)
-
-        } catch (err) {
-            console.log(err)
         }
+        if (req.body.show) {
+            req.body.show = req.body.show
+        } else {
+            req.body.show = 'hide'
+        }
+        if (req.files.img && req.files.imgGal) {
+            
+            const filename = req
+                .files
+                .img
+                .map(function (file) {
+                    return file.filename
+                })
+            const filenames = req
+                .files
+                .imgGal
+                .map(function (file) {
+                    return file.filename
+                })
+            await Film.updateOne({
+                id: req.params.id
+            }, {
+                img: filename.toString(),
+                imgGal: filenames,
+                event: isEvent(),
+                'title.en': req.body.title,
+                'title.hy': req.body.title_hy,
+                'description.en': req.body.description,
+                'description.hy': req.body.description_hy,
+                'country.en': req.body.country,
+                'country.hy': req.body.country_hy,
+                'languages.en': req.body.languages,
+                'languages.hy': req.body.languages_hy,
+                'director.en': req.body.director,
+                'director.hy': req.body.director_hy,
+                'producer.en': req.body.producer,
+                'producer.hy': req.body.producer_hy,
+                'editor.en': req.body.editor,
+                'editor.hy': req.body.editor_hy,
+                'exProducer.en': req.body.exProducer,
+                'exProducer.hy': req.body.exProducer_hy,
+                'cast.en': req.body.cast,
+                'cast.hy': req.body.cast_hy,
+                'category.en': req.body.category,
+                'category.hy': req.body.category_hy,
+                'fLink': req.body.fLink,
+                'duration': req.body.duration,
+                'date': req.body.date,
+                'screeningTime': req.body.screeningTime, 
+            })
+            
+            for (let i = 0; i < filenames.length; i++) {
+                const files = {
+                    img: filenames[i]
+                }
+                Media.insertMany(files)
+            }
+            const media = Media({img: filename})
+            await media.save(console.log("Image Added"))
+            
+        } else if (req.files.img) {
+            const filename = req
+                .files
+                .img
+                .map(function (file) {
+                    return file.filename
+                })
+            await Film.updateOne({
+                id: req.params.id
+            }, {
+                img: filename.toString(),
+                event: isEvent(),
+                'title.en': req.body.title,
+                'title.hy': req.body.title_hy,
+                'description.en': req.body.description,
+                'description.hy': req.body.description_hy,
+                'country.en': req.body.country,
+                'country.hy': req.body.country_hy,
+                'languages.en': req.body.languages,
+                'languages.hy': req.body.languages_hy,
+                'director.en': req.body.director,
+                'director.hy': req.body.director_hy,
+                'producer.en': req.body.producer,
+                'producer.hy': req.body.producer_hy,
+                'editor.en': req.body.editor,
+                'editor.hy': req.body.editor_hy,
+                'exProducer.en': req.body.exProducer,
+                'exProducer.hy': req.body.exProducer_hy,
+                'cast.en': req.body.cast,
+                'cast.hy': req.body.cast_hy,
+                'category.en': req.body.category,
+                'category.hy': req.body.category_hy,
+                'fLink': req.body.fLink,
+                'duration': req.body.duration,
+                'date': req.body.date,
+                'screeningTime': req.body.screeningTime,
+            })
+            const media = Media({img: filename.toString()})
+            await media.save(console.log("Image Added"))
+        } else if (req.files.imgGal) {
+            const filenames = req
+                .files
+                .imgGal
+                .map(function (file) {
+                    return file.filename
+                })
+            await Film.updateOne({
+                id: req.params.id
+            }, {
+                img: null,
+                imgGal: filenames,
+                event: isEvent(),
+                'title.en': req.body.title,
+                'title.hy': req.body.title_hy,
+                'description.en': req.body.description,
+                'description.hy': req.body.description_hy,
+                'country.en': req.body.country,
+                'country.hy': req.body.country_hy,
+                'languages.en': req.body.languages,
+                'languages.hy': req.body.languages_hy,
+                'director.en': req.body.director,
+                'director.hy': req.body.director_hy,
+                'producer.en': req.body.producer,
+                'producer.hy': req.body.producer_hy,
+                'editor.en': req.body.editor,
+                'editor.hy': req.body.editor_hy,
+                'exProducer.en': req.body.exProducer,
+                'exProducer.hy': req.body.exProducer_hy,
+                'cast.en': req.body.cast,
+                'cast.hy': req.body.cast_hy,
+                'category.en': req.body.category,
+                'category.hy': req.body.category_hy,
+                'fLink': req.body.fLink,
+                'duration': req.body.duration,
+                'date': req.body.date,
+                'screeningTime': req.body.screeningTime,
+            })
+            for (let i = 0; i < filenames.length; i++) {
+                const files = {
+                    img: filenames[i]
+                }
+                Media.insertMany(files)
+            }
+            
+        } else {
+            await Film.updateOne({
+                id: req.params.id
+            }, {
+                
+                event: isEvent(),
+                'title.en': req.body.title,
+                'title.hy': req.body.title_hy,
+                'description.en': req.body.description,
+                'description.hy': req.body.description_hy,
+                'country.en': req.body.country,
+                'country.hy': req.body.country_hy,
+                'languages.en': req.body.languages,
+                'languages.hy': req.body.languages_hy,
+                'director.en': req.body.director,
+                'director.hy': req.body.director_hy,
+                'producer.en': req.body.producer,
+                'producer.hy': req.body.producer_hy,
+                'editor.en': req.body.editor,
+                'editor.hy': req.body.editor_hy,
+                'exProducer.en': req.body.exProducer,
+                'exProducer.hy': req.body.exProducer_hy,
+                'cast.en': req.body.cast,
+                'cast.hy': req.body.cast_hy,
+                'category.en': req.body.category,
+                'category.hy': req.body.category_hy,
+                'fLink': req.body.fLink,
+                'duration': req.body.duration,
+                'date': req.body.date,
+                'screeningTime': req.body.screeningTime,
 
+            })
+            
+        }
+        res.redirect('/admin')
+    } catch (err) {
+        console.log(err)
     }
 
-)
+})
 router.get('/adduser', letin, async (req, res) => {
     const user = await User
         .find({id: req.params.id})
@@ -227,21 +334,24 @@ router.get('/addpartner', letin, async (req, res) => {
         partner
     });
 })
-router.post('/addpartner', letin, imgMidle.upload.single('img'), async (req, res) => {
-    try {
-        const partner = Partner({
-            name: req.body.name,
-            img: req.file.filename,
-            link: req.body.link,
-        })
-        await partner.save(console.log("Partner added"))
-        const media = Media({img: req.file.filename})
-        await media.save(console.log("Image Added"))
+router.post(
+    '/addpartner',
+    letin,
+    imgMidle.upload.single('img'),
+    async (req, res) => {
+        try {
+            const partner = Partner(
+                {name: req.body.name, img: req.file.filename, link: req.body.link}
+            )
+            await partner.save(console.log("Partner added"))
+            const media = Media({img: req.file.filename})
+            await media.save(console.log("Image Added"))
             res.redirect('addpartner')
-    } catch (err) {
-        console.log(err);
+        } catch (err) {
+            console.log(err);
+        }
     }
-})
+)
 router.post('/remove-partner/:id', async (req, res) => {
     try {
         await Partner.deleteOne({_id: req.params.id})

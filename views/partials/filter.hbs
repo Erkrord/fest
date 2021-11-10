@@ -1,8 +1,13 @@
 <ul class="collapsible">
     <li>
         <div class="collapsible-header">
-            <h5>
+            <h5> 
+                {{#if (localeIs "en")}}
                 <i class="material-icons">expand_more</i>Filter Films &amp; Events</h5>
+                {{/if}}
+                {{#if (localeIs "hy")}}
+                <i class="material-icons">expand_more</i>Ֆիլտրել ֆիլմերը և միջոցառումները</h5>
+                {{/if}}
         </div>
         <div class="collapsible-body">
             <span>
@@ -13,7 +18,12 @@
                         type="checkbox"
                         name="category"
                         value="Wildlife Conservation Films"/>
+                        {{#if (localeIs "en")}}
                         <span>Wildlife Conservation Films</span>
+                        {{/if}}
+                        {{#if (localeIs "hy")}}
+                        <span>Վայրի բնության պահպանություն</span>
+                        {{/if}}
                     </label>
                     <label><input
                         id="2"
@@ -21,15 +31,25 @@
                         type="checkbox"
                         name="category"
                         value="Environmental Films"/>
+                         {{#if (localeIs "en")}}
                         <span>Environmental Films</span>
+                        {{/if}}
+                        {{#if (localeIs "hy")}}
+                        <span>Բնապահպանական խնդիրներ</span>
+                        {{/if}}
                     </label>
                     <label><input
                         id="3"
                         class="checkbox"
                         type="checkbox"
                         name="category"
-                        value="Youth and Children Films"/>
-                        <span>Youth and Children Films</span>
+                        value="Educational Films"/>
+                        {{#if (localeIs "en")}}
+                        <span>Educational Films</span>
+                        {{/if}}
+                        {{#if (localeIs "hy")}}
+                        <span>Կրթական</span>
+                        {{/if}}
                     </label>
                     <label><input
                         id="4"
@@ -37,18 +57,33 @@
                         type="checkbox"
                         name="category"
                         value="Wildfire Prevention Films"/>
+                        {{#if (localeIs "en")}}
                         <span>Wildfire Prevention Films</span>
+                        {{/if}}
+                        {{#if (localeIs "hy")}}
+                        <span>Անտառային հրդեհներ</span>
+                        {{/if}}
                     </label>
                     <label><input
                         id="5"
                         class="checkbox"
                         type="checkbox"
                         name="category"
-                        value="Non-Competition Films"/>
-                        <span>Non-Competition Films</span>
+                        value="Informational Film Program"/>
+                        {{#if (localeIs "en")}}
+                        <span>Informational Film Program</span>
+                        {{/if}}
+                        {{#if (localeIs "hy")}}
+                        <span>Տեղեկատվական ծրագիր</span>
+                        {{/if}}
                     </label>
                     <label><input id="6" class="checkbox" type="checkbox" name="category" value="Events"/>
+                        {{#if (localeIs "en")}}
                         <span>Events</span>
+                        {{/if}}
+                        {{#if (localeIs "hy")}}
+                        <span>Միջոցառումներ</span>
+                        {{/if}}
                     </label>
                     <label><input
                         id="7"
@@ -56,8 +91,14 @@
                         type="checkbox"
                         name="category"
                         value="Journalistic Competition"/>
+                         {{#if (localeIs "en")}}
                         <span>Journalistic Competition</span>
+                        {{/if}}
+                        {{#if (localeIs "hy")}}
+                        <span>Լրագրողական հետաքննություն</span>
+                        {{/if}}
                     </label>
+                    {{#if (localeIs "en")}}
                     <div class="filterBtns">
                         <input type="hidden" name="_csrf" value="{{@root.tkn}}"/>
                         <button id='clearBtn' type="reset" class="waves-effect grey darken-3 btn">
@@ -66,6 +107,17 @@
                         <button id='filterBtn' type="submit" class="waves-effect grey darken-3 btn">
                             Filter</button>
                     </div>
+                    {{/if}}
+                    {{#if (localeIs "hy")}}
+                    <div class="filterBtns">
+                        <input type="hidden" name="_csrf" value="{{@root.tkn}}"/>
+                        <button id='clearBtn' type="reset" class="waves-effect grey darken-3 btn">
+                            Մաքրել</button>
+
+                        <button id='filterBtn' type="submit" class="waves-effect grey darken-3 btn">
+                            Ֆիլտրել</button>
+                    </div>
+                    {{/if}}
 
                 </form>
             </span>

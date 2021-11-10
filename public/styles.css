@@ -1,10 +1,19 @@
 .nav-wrapper {
     padding: 0 2em;
 }
-.text-center{
+.text-center {
     text-align: center;
 }
 
+.lngBtn {
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+.lngBtn:focus {
+    background: transparent;
+}
 .film-card {
     width: 100% !important;
 }
@@ -19,27 +28,28 @@ body {
     float: left;
     width: 33.33%;
     padding: 5px;
-  }
-  
-  /* Clear floats after image containers */
-  .filmGalRow::after {
+}
+
+/* Clear floats after image containers */
+.filmGalRow::after {
     content: "";
     clear: both;
     display: table;
-  }
+}
 /*FILM GALLERY END*/
 /*SIDEBAR START*/
-nav .sidenav-trigger{
+nav .sidenav-trigger {
     float: right;
 }
 /*SIDEBAR END*/
 /*PARTNERS START*/
-.hind-text,.copyright{
+.copyright,
+.hind-text {
     text-align: center;
 }
 /*PARTNERS END*/
 /*SUBSCRIBE MODAL START*/
-.sbs{
+.sbs {
     text-align: center;
     background-color: #fafafad8;
 }
@@ -144,7 +154,7 @@ nav .sidenav-trigger{
     background-size: cover;
 
 }
-.plugMask{
+.plugMask {
     display: block;
     width: 100%;
     height: 100%;
@@ -201,7 +211,7 @@ i.icon-red {
     background-size: cover;
 }
 .filterBtns {
-    margin-left: 85%;
+    margin-left: 83%;
 }
 
 .filterForm {
@@ -607,6 +617,9 @@ i.icon-red {
         padding-top: 60px;
         padding-bottom: 30px;
     }
+    .mobLng{
+        display: none;
+    }
 }
 .padded-sides-10 {
     padding-left: 10px;
@@ -778,7 +791,7 @@ iframe {
     height: 16px;
 }
 @media screen and (max-width: 800px) {
-    .filterBtns{
+    .filterBtns {
         margin-left: 0;
     }
     [type="checkbox"] + span:not(.lever) {
@@ -786,7 +799,7 @@ iframe {
         padding-left: 7.9%;
         display: block;
     }
-    #filmPlug{
+    #filmPlug {
         max-width: 340px;
         font-size: 8px;
     }

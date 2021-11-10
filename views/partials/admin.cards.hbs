@@ -7,7 +7,7 @@
     <div class="col s12 m7">
         <div class="card horizontal">
             <div class="card-image">
-                <img id="admCardimage" src="//localhost:3000/uploads/{{img}}" alt="{{title}}">
+                <img id="admCardimage" src="//localhost:3000/uploads/{{img}}" alt="{{title.en}}">
             </div>
             <div class="card-stacked">
                 <div class="Film_content card-content">
@@ -17,12 +17,12 @@
                                 {{duration}}
                                 min</div>
                         </div>
-                        <div class="filmGenre">{{category}}</div>
+                        <div class="filmGenre">{{category.en}}</div>
                         <div class="clearfix"></div>
                         <h4 class="heading-4">
-                            <a class="film_title" href="/events/beautiful-things-2020">{{title}}</a>
+                            <a class="film_title" href="/events/beautiful-things-2020">{{title.en}}</a>
                         </h4>
-                        <div class="filmSummary">{{description}}</div>
+                        <div class="filmSummary">{{description.en}}</div>
                     </div>
 
                 </div>
@@ -67,9 +67,11 @@
         }
         return str.slice(0, num) + ' ...'
     }
-    let filmSummary = document.querySelector('.filmSummary')
-    let test = truncateString(filmSummary.innerHTML, 360)
-    filmSummary.innerHTML = test
+    let filmSummary = document.querySelectorAll('.filmSummary')
+    for (let i = 0; i < filmSummary.length; i++) {
+        let test = truncateString(filmSummary[i].innerHTML, 360)
+        filmSummary[i].innerHTML = test
+    }
     let btns = document.querySelectorAll('.btns')
     let form = document.getElementById('plugForm')
     for (let i = 0; i < btns.length; i++) {
